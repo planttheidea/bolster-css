@@ -1,0 +1,135 @@
+@import './variables.scss';
+
+button,
+.button {
+  background-color: $white;
+  border: 1px solid $gray-medium;
+  border-radius: $border-radius;
+  cursor: pointer;
+  display: inline-block;
+  line-height: normal;
+  padding: 0.5em 1em;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+
+  -webkit-user-drag: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus,
+  &:hover {
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.10));
+    text-decoration: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  &[data-disabled] {
+    background-image: none!important;
+  }
+
+  &:active {
+    box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
+  }
+
+  &.primary,
+  &.info,
+  &.danger,
+  &.success {
+    color: $white;
+  }
+
+  &.primary {
+    background-color: $primary;
+    border-color: $primary;
+  }
+
+  &.info {
+    background-color: $info;
+    border-color: $info;
+  }
+
+  &.danger {
+    background-color: $danger;
+    border-color: $danger;
+  }
+
+  &.success {
+    background-color: $success;
+    border-color: $success;
+  }
+
+  &.warning {
+    background-color: $warning;
+    border-color: $warning;
+  }
+
+  &.link {
+    background-color: transparent;
+    border-color: transparent;
+    color: $info;
+
+    &:not(.disabled):not([disabled]):hover {
+      background-image: none;
+      text-decoration: underline;
+    }
+  }
+
+  &.extra-small {
+    padding: 0.1em 0.2em;
+  }
+
+  &.small {
+    padding: 0.25em 0.5em;
+  }
+
+  &.large {
+    padding: 0.75em 1.5em;
+  }
+
+  &.extra-large {
+    padding: 1em 2em;
+  }
+}
+
+.button-group {
+  align-items: stretch;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  & > button,
+  & > .button {
+    &:first-child {
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    &:last-child {
+      border-radius: 0 $border-radius $border-radius 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
+
+  &.justified {
+    display: flex;
+
+    & > button,
+    & > .button {
+      flex-basis: auto;
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+  }
+}

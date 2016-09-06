@@ -1,0 +1,106 @@
+@import './variables.scss';
+
+table {
+  border: 1px solid $gray-medium;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+
+  caption {
+    color: $black;
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center;
+  }
+
+  td,
+  th {
+    margin: 0;
+    overflow: visible;
+    padding: 0.5em 1em;
+  }
+
+  td:not(:last-child),
+  th:not(:last-child) {
+    border-right: 1px solid $gray-medium;
+  }
+
+  thead {
+    background-color: $gray-light;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  tbody {
+    background-color: $white;
+  }
+
+  &.striped tr:nth-child(2n) td {
+    background-color: $gray-extra-light;
+  }
+
+  tr.primary td,
+  tr.info td,
+  tr.danger td,
+  tr.success td,
+  td.primary,
+  td.info,
+  td.danger,
+  td.success {
+    color: $white;
+  }
+
+  tr.primary td,
+  td.primary {
+    background-color: $primary;
+  }
+
+  tr.info td,
+  td.info{
+    background-color: $info;
+  }
+
+  tr.danger td,
+  td.danger {
+    background-color: $danger;
+  }
+
+  tr.success td,
+  td.success {
+    background-color: $success;
+  }
+
+  tr.warning td,
+  td.warning {
+    background-color: $warning;
+  }
+
+  &.hover tr:focus td,
+  &.hover tr:hover td {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.025) 50%, rgba(0, 0, 0, 0.10));
+  }
+
+  &.hover[disabled] tr:focus td,
+  &.hover.disabled tr:focus td,
+  &.hover tr[disabled]:hover td,
+  &.hover tr.disabled:hover td,
+  &.hover tr:hover td[disabled],
+  &.hover tr:hover td.disabled {
+    background-image: none!important;
+  }
+
+  &.bordered thead,
+  &.bordered tr:not(:last-child) td {
+    border-bottom: 1px solid $gray-medium;
+  }
+
+  &.horizontal th,
+  &.horizontal td {
+    border-right: 0;
+  }
+
+  &.horizontal td {
+    border-bottom: 1px solid $gray-medium;
+  }
+}

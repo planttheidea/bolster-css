@@ -1,0 +1,175 @@
+@import './variables';
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  color: inherit;
+  font: inherit;
+  position: relative;
+}
+
+html,
+body {
+  color: $gray-extra-dark;
+  font-size: 14px;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  background-color: $white;
+  color: $gray-extra-dark;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.hidden,
+[hidden],
+[data-hidden] {
+  display: none !important;
+}
+
+.disabled,
+[disabled],
+[data-disabled] {
+  box-shadow: none!important;
+  cursor: not-allowed!important;
+  opacity: 0.5!important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+a {
+  color: $info;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.disabled:active,
+  &[disabled]:active,
+  &.disabled:focus,
+  &[disabled]:focus,
+  &.disabled:hover,
+  &[disabled]:hover {
+    text-decoration: none;
+  }
+}
+
+ul,
+ol,
+dl,
+.ul,
+.ol,
+.dl {
+  display: block;
+  margin: 1em 0;
+  padding: 0 0 0 $gutter-large;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li,
+dd {
+  margin: 0 0 0 $gutter-large;
+  padding: 0;
+}
+
+dt {
+  font-weight: bold;
+}
+
+p {
+  margin: 1em 0;
+}
+
+blockquote,
+.blockquote {
+  border-color: $gray-medium;
+  border-style: solid;
+  border-width: 1px 1px 1px 5px;
+  display: block;
+  margin: 1em 0;
+  padding: 1.5em;
+  quotes: none;
+}
+
+.padded {
+  padding: 0 $gutter-large;
+
+  &-top {
+    padding-top: $gutter-large;
+  }
+
+  &-left {
+    padding-left: $gutter-large;
+  }
+
+  &-right {
+    padding-right: $gutter-large;
+  }
+
+  &-bottom {
+    padding-bottom: $gutter-large;
+  }
+
+  &-full {
+    padding: $gutter-large;
+  }
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace;
+}
+
+code {
+  background-color: $gray-extra-light;
+  border-radius: $border-radius;
+  color: $gray-dark;
+  font-size: 0.95rem;
+  line-height: 1.05rem;
+  padding: 0.25em;
+}
+
+pre {
+  background-color: $gray-extra-light;
+  border: 1px solid $gray-medium;
+  border-radius: $border-radius;
+  color: $gray-dark;
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.05rem;
+  margin: 1em 0;
+  padding: 1em;
+  word-break: break-all;
+  word-wrap: break-word;
+
+  code {
+    background-color: inherit;
+    border-radius: 0;
+    color: inherit;
+    font-size: inherit;
+    padding: 0;
+    white-space: pre-wrap;
+  }
+}

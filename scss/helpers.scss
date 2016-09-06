@@ -1,0 +1,77 @@
+@import './variables';
+
+.padded {
+  padding: 0 $gutter-large;
+
+  &-top {
+    padding-top: $gutter-large;
+  }
+
+  &-left {
+    padding-left: $gutter-large;
+  }
+
+  &-right {
+    padding-right: $gutter-large;
+  }
+
+  &-bottom {
+    padding-bottom: $gutter-large;
+  }
+
+  &-full {
+    padding: $gutter-large;
+  }
+
+  &-none {
+    padding: 0;
+  }
+}
+
+.container {
+  margin: 0 auto;
+}
+
+$minSize: nth($sizes, 2);
+
+@media screen and (max-width: #{$minSize - 1}px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@for $i from 2 to length($sizes) {
+  $size: nth($sizes, $i);
+
+  @media screen and (min-width: #{$size}px) {
+    .container {
+      width: $size - ($gutter-large * 2);
+    }
+  }
+}
+
+.clearfix {
+  &:after,
+  &:before {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.float {
+  &-left {
+    float: left;
+  }
+
+  &-right {
+    float: right;
+  }
+
+  &-none {
+    float: none;
+  }
+}

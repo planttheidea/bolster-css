@@ -1,0 +1,17 @@
+@import './variables.scss';
+
+img {
+  &.responsive {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
+  &.rounded {
+    border-radius: $border-radius;
+  }
+
+  &.circle {
+    border-radius: 50%;
+  }
+}

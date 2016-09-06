@@ -1,0 +1,66 @@
+@import './variables';
+
+$tag-border-radius: 0.425rem;
+
+.tag {
+  align-items: center;
+  background-color: $gray-light;
+  border-radius: $tag-border-radius;
+  display: inline-flex;
+  font-size: 0.85rem;
+  justify-content: center;
+  padding: 0.5em;
+  vertical-align: middle;
+
+  &.primary,
+  &.info,
+  &.success,
+  &.danger {
+    color: $white;
+  }
+
+  &.primary {
+    background-color: $primary;
+  }
+
+  &.info {
+    background-color: $info;
+  }
+
+  &.success {
+    background-color: $success;
+  }
+
+  &.danger {
+    background-color: $danger;
+  }
+
+  &.warning {
+    background-color: $warning;
+  }
+
+  &-group {
+    align-items: stretch;
+    display: flex;
+
+    .tag {
+      display: block;
+      flex-basis: auto;
+      flex-grow: 0;
+      flex-shrink: 0;
+      vertical-align: baseline;
+
+      &:first-child {
+        border-radius: $tag-border-radius 0 0 $tag-border-radius;
+      }
+
+      &:last-child {
+        border-radius: 0 $tag-border-radius $tag-border-radius 0;
+      }
+
+      &:not(:first-child):not(:last-child):not(:only-child) {
+        border-radius: 0;
+      }
+    }
+  }
+}

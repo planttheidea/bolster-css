@@ -1,0 +1,58 @@
+@import './variables';
+
+@mixin setTextAlign($alignment) {
+  .text-#{$alignment} {
+    text-align: $alignment;
+  }
+}
+
+@mixin setTextColor($color, $colorName) {
+  .text-#{$colorName} {
+    color: $color;
+  }
+}
+
+@mixin setHeaderSize($size) {
+  font-size: #{3.1 - ($size * 0.35)}rem;
+}
+
+@include setTextAlign(left);
+@include setTextAlign(center);
+@include setTextAlign(right);
+
+@include setTextColor($primary, primary);
+@include setTextColor($info, info);
+@include setTextColor($success, success);
+@include setTextColor($danger, danger);
+@include setTextColor($warning, warning);
+
+$headers: 1 2 3 4 5 6;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.header {
+  margin: 0.75em 0 0.25em;
+}
+
+@each $header in $headers {
+  h#{$header},
+  .header-#{$header} {
+    @include setHeaderSize($header);
+  }
+}
+
+strong,
+b,
+.text-bold {
+  font-weight: bold;
+}
+
+em,
+i,
+.text-italic {
+  font-style: italic;
+}

@@ -1,0 +1,290 @@
+@import './variables';
+
+form,
+fieldset {
+  border: 0;
+  margin: 0;
+}
+
+form {
+  padding: 0;
+}
+
+fieldset {
+  padding: 0.5em 0;
+}
+
+legend {
+  border-bottom: 1px solid $gray-light;
+  color: $gray-dark;
+  display: block;
+  margin-bottom: 0.25em;
+  padding: 0.25em 0;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 0.5em 0 0.25em;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="week"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+input:not([type]),
+select,
+textarea {
+  background-color: $white;
+  border: 1px solid $gray-medium;
+  border-radius: $border-radius;
+  display: block;
+  line-height: normal;
+  margin: 0.25em 0;
+  padding: 0.5em 1em;
+  user-select: none;
+  width: 100%;
+  z-index: 0;
+
+  -webkit-user-drag: none;
+
+  &:invalid {
+    border-color: $danger;
+  }
+
+  &:focus {
+    border-color: rgba($info, 0.5);
+    box-shadow: 0 0 5px $info;
+    outline: 0;
+    z-index: 1;
+
+    &:invalid {
+      border-color: rgba($danger, 0.5);
+      box-shadow: 0 0 5px $danger;
+    }
+  }
+
+  &[disabled],
+  &.disabled {
+    background-color: $gray-extra-light!important;
+    color: $gray-dark!important;
+  }
+
+  &[readonly],
+  &.readonly {
+    background-color: $gray-extra-light;
+  }
+}
+
+input[type="file"],
+input[type="checkbox"]
+input[type="radio"] {
+  display: block;
+  margin: 0.25em 0;
+
+  &.inline {
+    display: inline-block;
+    margin: 0.25em;
+  }
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.control-group {
+  margin-bottom: 1em;
+}
+
+.toggle {
+  display: inline-block;
+  position: relative;
+
+  & > label {
+    border: 1px solid $gray-medium;
+    border-radius: $border-radius;
+    display: block;
+    margin: 0.25em 0;
+    padding: 0.5em 1em;
+    z-index: 0;
+
+    &.inline {
+      display: inline-block;
+      margin: 0.25em;
+    }
+  }
+
+  & > input[type="checkbox"],
+  & > input[type="radio"] {
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+
+    &:checked + label {
+      background-color: $info;
+      border-color: $info;
+      color: $white;
+    }
+  }
+}
+
+.input-group {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 0.25em 0;
+
+  * {
+    flex-basis: auto;
+    flex-shrink: 0;
+  }
+
+  button,
+  select,
+  textarea {
+    flex-grow: 0;
+    margin: 0;
+
+    &:first-child {
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    &:last-child {
+      border-radius: 0 $border-radius $border-radius 0;
+    }
+
+    &:not(:first-child):not(:last-child):not(:only-child) {
+      border-radius: 0;
+    }
+  }
+
+  select,
+  textarea {
+    margin: 0;
+    width: auto;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="url"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="week"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  input:not([type]) {
+    flex-grow: 1;
+    margin: 0;
+    width: auto;
+
+    &:first-child {
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    &:last-child {
+      border-radius: 0 $border-radius $border-radius 0;
+      margin-left: -1px;
+    }
+
+    &:not(:first-child):not(:last-child):not(:only-child) {
+      border-radius: 0;
+      margin-left: -1px;
+    }
+  }
+
+  &.stacked {
+    flex-direction: column;
+
+    button,
+    select,
+    textarea {
+      &:first-child {
+        border-radius: $border-radius $border-radius 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 $border-radius $border-radius;
+        margin-left: 0;
+        margin-top: -1px;
+      }
+
+      &:not(:first-child):not(:last-child):not(:only-child) {
+        border-radius: 0;
+        margin-left: 0;
+        margin-top: -1px;
+      }
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="url"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="week"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"],
+    input:not([type]) {
+      &:first-child {
+        border-radius: $border-radius $border-radius 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 $border-radius $border-radius;
+        margin-left: 0;
+        margin-top: -1px;
+      }
+
+      &:not(:first-child):not(:last-child):not(:only-child) {
+        border-radius: 0;
+        margin-left: 0;
+        margin-top: -1px;
+      }
+    }
+  }
+
+  .toggle {
+    &:first-child > label  {
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    &:last-child > label  {
+      border-radius: 0 $border-radius $border-radius 0;
+      margin-left: -1px;
+    }
+
+    &:not(:first-child):not(:last-child):not(:only-child) > label {
+      border-radius: 0;
+      margin-left: -1px;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+@import './variables.scss';
+
+@mixin gridStyles() {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.grid {
+  @include gridStyles();
+  flex-wrap: wrap;
+}
+
+.row {
+  @include gridStyles();
+  flex-wrap: nowrap;
+}
+
+.column {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
+  min-width: 0;
+  padding: 0 $gutter-large;
+
+  &.fit-content {
+    flex-basis: auto;
+    flex-grow: 0;
+  }
+
+  &.align-center {
+    align-self: center;
+  }
+
+  &.align-end {
+    align-self: flex-end;
+  }
+
+  &.align-start {
+    align-self: flex-start;
+  }
+}
+
+@for $column from 1 through 12 {
+  $width: percentage($column / 12);
+
+  .column-#{$column} {
+    flex-basis: $width;
+    flex-grow: 0;
+    width: $width;
+  }
+
+  .offset-#{$column} {
+    margin-left: $width;
+  }
+}
+
+@for $i from 1 through length($sizes) {
+  $size: nth($sizes, $i);
+  $sizeName: nth($sizeNames, $i);
+
+  @media screen and (min-width: #{$size}px) {
+    @for $column from 1 through 12 {
+      $width: percentage($column / 12);
+
+      .column-#{$sizeName}-#{$column} {
+        flex-basis: $width;
+        flex-grow: 0;
+        width: $width;
+      }
+
+      .offset-#{$sizeName}-#{$column} {
+        margin-left: $width;
+      }
+    }
+  }
+}

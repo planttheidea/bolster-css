@@ -1,0 +1,152 @@
+@import './variables.scss';
+
+.menu {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  &.horizontal {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  &.vertical {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    height: 100%;
+    width: auto;
+
+    &.full-width {
+      display: flex;
+      width: 100%;
+    }
+
+    .menu-item {
+      width: 100%;
+    }
+  }
+
+  &.left {
+    justify-content: flex-start;
+  }
+
+  &.centered {
+    justify-content: center;
+  }
+
+  &.right {
+    justify-content: flex-end;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.justified {
+    .menu-item {
+      flex-grow: 1;
+      text-align: center;
+    }
+  }
+}
+
+.menu-item {
+  background-color: transparent;
+  color: inherit;
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+
+  &.left {
+    margin-right: auto;
+  }
+
+  &.centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.right {
+    margin-left: auto;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: $gray-extra-light;
+    color: $gray-extra-dark;
+  }
+
+  &:active,
+  &.active {
+    background-color: transparent;
+    color: $info;
+  }
+
+  &[disabled],
+  &.disabled {
+    &:hover {
+      background-color: transparent;
+    }
+
+    &:active,
+    &.active {
+      color: $gray-extra-dark;
+    }
+
+    .menu-item-link {
+      cursor: not-allowed;
+    }
+  }
+
+  &-link {
+    color: inherit;
+    display: block;
+    padding: $gutter-medium $gutter-large;
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .menu {
+    box-shadow: 0 0 5px $gray-medium;
+    display: none;
+    left: 0;
+    min-width: 100%;
+    position: absolute;
+    top: 100%;
+    width: auto;
+    z-index: 10;
+
+    &.active {
+      display: block;
+    }
+
+    &.align-right {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+.menu.vertical .menu-item .menu {
+  left: 100%;
+  top: 0;
+}
