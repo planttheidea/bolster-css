@@ -12,6 +12,12 @@
   }
 }
 
+@mixin setTextSize($size, $sizeName) {
+  .text-#{$sizeName} {
+    font-size: $size;
+  }
+}
+
 @mixin setHeaderSize($size) {
   font-size: #{3.1 - ($size * 0.35)}rem;
 }
@@ -25,6 +31,11 @@
 @include setTextColor($success, success);
 @include setTextColor($danger, danger);
 @include setTextColor($warning, warning);
+
+@include setTextSize(0.7em, extra-small);
+@include setTextSize(0.85em, small);
+@include setTextSize(1.15em, large);
+@include setTextSize(1.3em, extra-large);
 
 $headers: 1 2 3 4 5 6;
 

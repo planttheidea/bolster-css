@@ -11,6 +11,22 @@ const STYLES = {
   }
 };
 
+const TAG_TYPES = [
+  '',
+  'primary',
+  'info',
+  'danger',
+  'success',
+  'warning'
+];
+const TAG_SIZES = [
+  'extra-small',
+  'small',
+  '',
+  'large',
+  'extra-large'
+];
+
 const Labels = () => {
   return (
     <section>
@@ -23,47 +39,17 @@ const Labels = () => {
       </p>
 
       <div style={STYLES.group}>
-        <span
-          className="tag"
-          style={STYLES.tag}
-        >
-          tag
-        </span>
-
-        <span
-          className="tag primary"
-          style={STYLES.tag}
-        >
-          tag primary
-        </span>
-
-        <span
-          className="tag info"
-          style={STYLES.tag}
-        >
-          tag info
-        </span>
-
-        <span
-          className="tag success"
-          style={STYLES.tag}
-        >
-          tag success
-        </span>
-
-        <span
-          className="tag danger"
-          style={STYLES.tag}
-        >
-          tag danger
-        </span>
-
-        <span
-          className="tag warning"
-          style={STYLES.tag}
-        >
-          tag warning
-        </span>
+        {TAG_TYPES.map((tagType, tagTypeIndex) => {
+          return (
+            <span
+              className={`tag ${tagType}`}
+              key={`tag-type-${tagTypeIndex}`}
+              style={STYLES.tag}
+            >
+              tag {tagType}
+            </span>
+          );
+        })}
       </div>
       
       <CodeBlock>{`
@@ -93,7 +79,41 @@ const Labels = () => {
 `}</CodeBlock>
 
       <h4>
-        Tag groups
+        Sizes
+      </h4>
+
+      <p>
+        Tags also can be one of five sizes:
+      </p>
+
+      <div style={STYLES.group}>
+        {TAG_SIZES.map((tagSize, tagSizeIndex) => {
+          const text = tagSize || 'medium (default)';
+
+          return (
+            <span
+              className={`tag ${tagSize}`}
+              key={`tag-size-${tagSizeIndex}`}
+              style={STYLES.tag}
+            >
+              tag {text}
+            </span>
+          );
+        })}
+      </div>
+
+      <CodeBlock>{`
+<div class="tag small">
+    I am a small tag
+</div>
+
+<div class="tag extra-large">
+    I am a super big tag
+</div>
+`}</CodeBlock>
+
+      <h4>
+        Groups
       </h4>
 
       <p>

@@ -50,6 +50,18 @@ $minSize: nth($sizes, 2);
   }
 }
 
+.card {
+  background-color: $white;
+  border: 1px solid $gray-medium;
+  border-radius: $border-radius;
+  color: $gray-extra-dark;
+  max-width: 100%;
+
+  &.inline {
+    display: inline-block;
+  }
+}
+
 .clearfix {
   &:after,
   &:before {

@@ -63,4 +63,20 @@ $tag-border-radius: 0.425rem;
       }
     }
   }
+
+  &.extra-small {
+    font-size: 0.55rem;
+  }
+
+  &.small {
+    font-size: 0.7rem;
+  }
+
+  &.large {
+    font-size: 1rem;
+  }
+
+  &.extra-large {
+    font-size: 1.15rem;
+  }
 }

@@ -1,0 +1,51 @@
+@import './variables';
+
+.notification {
+  background-color: $gray-light;
+  color: $gray-extra-dark;
+  border-radius: $border-radius;
+  padding: $gutter-large;
+
+  &:not(:last-child) {
+    margin-bottom: 2em;
+  }
+
+  &.primary,
+  &.info,
+  &.danger,
+  &.success {
+    color: $white;
+  }
+
+  &.primary {
+    background-color: $primary;
+  }
+
+  &.info {
+    background-color: $info;
+  }
+
+  &.danger {
+    background-color: $danger;
+  }
+
+  &.success {
+    background-color: $success;
+  }
+
+  &.warning {
+    background-color: $warning;
+  }
+
+  .close {
+    background-color: rgba($gray-extra-dark, 0.25);
+    border: 0;
+    color: $white;
+    float: right;
+    margin: -1 * $gutter-large;
+
+    &:hover {
+      background-color: rgba($gray-extra-dark, 0.75);
+    }
+  }
+}

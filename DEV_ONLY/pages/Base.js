@@ -250,6 +250,12 @@ export default App;`}
         The "container" class will create a fixed-width responsive container that is centered in the page.
       </div>
 
+      <CodeBlock>{`
+<div class="container">
+    I am a fixed-width container that will grow responsively based on screen sizes.
+</div>
+`}</CodeBlock>
+
       <p>
         The "padded" class will add padding on both the left and right sides.
       </p>
@@ -288,10 +294,6 @@ export default App;`}
       </ul>
 
       <CodeBlock>{`
-<div class="container">
-    I am a fixed-width container that will grow responsively based on screen sizes.
-</div>
-
 <div class="padding">
     I am padded on the left and right sides.
 </div>
@@ -314,6 +316,20 @@ export default App;`}
 
 <div class="padding-full">
     I am padded on all sides.
+</div>
+`}</CodeBlock>
+
+      <p>
+        The "card" class will apply a simple decoration to a container (background, border, color):
+      </p>
+
+      <div className="container card padded-full">
+        I am a padded-full container that is also a card.
+      </div>
+
+      <CodeBlock>{`
+<div class="container card padded-full">
+  I am a padded-full container that is also a card.
 </div>
 `}</CodeBlock>
     </section>

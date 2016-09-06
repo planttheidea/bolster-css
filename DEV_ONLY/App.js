@@ -26,6 +26,7 @@ import Grids from './pages/Grids';
 import Images from './pages/Images';
 import Tags from './pages/Tags';
 import Menus from './pages/Menus';
+import Notifications from './pages/Notifications';
 import Tables from './pages/Tables';
 import Text from './pages/Text';
 
@@ -36,35 +37,48 @@ Style.setGlobalOptions({
   isMinified: IS_PRODUCTION
 });
 
-const LINKS = [
+const ROUTES = [
   {
     text: 'Home',
     to: '/'
   }, {
+    component: Base,
     text: 'Base',
     to: '/base'
   }, {
+    component: Text,
     text: 'Text',
     to: '/text'
   }, {
+    component: Grids,
     text: 'Grids',
     to: '/grids'
   }, {
+    component: Buttons,
     text: 'Buttons',
     to: '/buttons'
   }, {
+    component: Menus,
     text: 'Menus',
     to: '/menus'
   }, {
+    component: Forms,
     text: 'Forms',
     to: '/forms'
   }, {
+    component: Tables,
     text: 'Tables',
     to: '/tables'
   }, {
+    component: Tags,
     text: 'Tags',
     to: '/tags'
   }, {
+    component: Notifications,
+    text: 'Notifications',
+    to: '/notifications'
+  }, {
+    component: Images,
     text: 'Images',
     to: '/images'
   }
@@ -91,7 +105,7 @@ class App extends Component {
         <header className={nav}>
           <nav>
             <ul className="menu vertical full-width">
-              {LINKS.map(({text, to}, linkIndex) => {
+              {ROUTES.map(({text, to}, linkIndex) => {
                 const isActive = location.pathname === to;
 
                 return (
@@ -160,42 +174,15 @@ render((
       component={App}
       path="/"
     >
-      <Route
-        component={Base}
-        path="/base"
-      />
-      <Route
-        component={Text}
-        path="/text"
-      />
-      <Route
-        component={Images}
-        path="/images"
-      />
-      <Route
-        component={Tables}
-        path="/tables"
-      />
-      <Route
-        component={Buttons}
-        path="/buttons"
-      />
-      <Route
-        component={Grids}
-        path="/grids"
-      />
-      <Route
-        component={Menus}
-        path="/menus"
-      />
-      <Route
-        component={Tags}
-        path="/tags"
-      />
-      <Route
-        component={Forms}
-        path="/forms"
-      />
+      {ROUTES.map(({component, to}, routeIndex) => {
+        return (
+          <Route
+            component={component}
+            key={`route-${routeIndex}`}
+            path={to}
+          />
+        );
+      })}
     </Route>
   </Router>
 ), div);
