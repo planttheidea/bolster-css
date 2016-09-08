@@ -4,19 +4,19 @@
   padding: 0 $gutter-large;
 
   &-top {
-    padding-top: $gutter-large;
+    padding: $gutter-large 0 0 0;
   }
 
   &-left {
-    padding-left: $gutter-large;
+    padding-left: 0 0 0 $gutter-large;
   }
 
   &-right {
-    padding-right: $gutter-large;
+    padding-right: 0 $gutter-large 0 0;
   }
 
   &-bottom {
-    padding-bottom: $gutter-large;
+    padding-bottom: 0 0 $gutter-large 0;
   }
 
   &-full {

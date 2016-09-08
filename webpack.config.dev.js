@@ -1,13 +1,15 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const eslintFriendlyFormatter = require('eslint-friendly-formatter');
+'use strict';
 
-const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const defaultConfig = require('./webpack.config');
+const utils = require('./webpackConfigUtils');
+
+const ADDITIONAL_LOADERS = utils.getAdditionalLoaders(true);
 
 const PORT = 3000;
 
-module.exports = {
+module.exports = Object.assign({}, defaultConfig, {
   cache: true,
 
   debug: true,
@@ -28,103 +30,15 @@ module.exports = {
 
   devtool: 'eval-cheap-module-source-map',
 
-  entry: [
-    path.resolve(__dirname, 'DEV_ONLY', 'App.js')
-  ],
+  module: Object.assign({}, defaultConfig.module, {
+    loaders: defaultConfig.module.loaders.concat(ADDITIONAL_LOADERS)
+  }),
 
-  eslint: {
-    configFile: '.eslintrc',
-    emitError: true,
-    failOnError: true,
-    failOnWarning: false,
-    formatter: eslintFriendlyFormatter
-  },
+  output: Object.assign({}, defaultConfig.output, {
+    publicPath: `http://localhost:${PORT}/`
+  }),
 
-  module: {
-    preLoaders: [
-      {
-        include: [
-          path.resolve(__dirname, 'src')
-        ],
-        loader: 'eslint-loader',
-        test: /\.js$/
-      }
-    ],
-
-    loaders: [
-      {
-        loader: 'json',
-        test: /\.json$/
-      }, {
-        include: [
-          path.resolve(__dirname, 'scss'),
-          path.resolve(__dirname, 'DEV_ONLY')
-        ],
-        loader: 'babel',
-        test: /\.js$/
-      }, {
-        include: [
-          path.resolve(__dirname, 'scss'),
-          path.resolve(__dirname, 'DEV_ONLY')
-        ],
-        loaders: [
-          'style',
-          'css?sourceMap',
-          'postcss',
-          'sass'
-        ],
-        test: /\.scss/
-      }, {
-        include: [
-          path.resolve(__dirname, 'node_modules')
-        ],
-        loaders: [
-          'style',
-          'css?sourceMap'
-        ],
-        test: /\.css/
-      }
-    ]
-  },
-
-  node: {
-    fs: 'empty'
-  },
-
-  output: {
-    filename: 'deedy.js',
-    library: 'deedy',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: `http://localhost:${PORT}/`,
-    umdNamedDefine: true
-  },
-
-  plugins: [
-    new webpack.EnvironmentPlugin([
-      'NODE_ENV'
-    ]),
+  plugins: defaultConfig.plugins.concat([
     new HtmlWebpackPlugin()
-  ],
-
-  postcss() {
-    return [
-      autoprefixer
-    ]
-  },
-
-  resolve: {
-    extensions: [
-      '',
-      '.js'
-    ],
-
-    root: __dirname
-  },
-
-  sassLoader: {
-    includePaths: [
-      path.resolve(__dirname, 'node_modules')
-    ],
-    sourceMap: true
-  }
-};
+  ])
+});

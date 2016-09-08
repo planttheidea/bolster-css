@@ -404,6 +404,112 @@ const Labels = () => {
   </div>
 </div>
 `}</CodeBlock>
+
+      <h4>
+        Inline forms using grid
+      </h4>
+
+      <p>
+        When you combine form inputs with bolster's grid setup, you can easily create inline form setups:
+      </p>
+
+      <form>
+        <fieldset className="grid">
+          <div className="row control-group">
+            <label className="column column-2 text-right align-center">
+              Name
+            </label>
+
+            <div className="column column-10">
+              <input
+                placeholder="Timmy Test"
+                type="text"
+              />
+            </div>
+          </div>
+
+          <div className="row control-group">
+            <label className="column column-2 text-right align-center">
+              Email
+            </label>
+
+            <div className="column column-10">
+              <input
+                placeholder="foo@bar.com"
+                type="email"
+              />
+            </div>
+          </div>
+
+          <div className="row control-group">
+            <div className="column column-10 offset-2">
+              <button
+                className="primary"
+                type="button"
+              >
+                Submit
+              </button>
+
+              <button
+                className="link"
+                type="button"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+      <CodeBlock>{`
+<form>
+  <fieldset class="grid">
+    <div class="row control-group">
+      <label class="column column-2 text-right align-center">
+        Name
+      </label>
+
+      <div class="column column-10">
+        <input
+          placeholder="Timmy Test"
+          type="text"
+        />
+      </div>
+    </div>
+
+    <div class="row control-group">
+      <label class="column column-2 text-right align-center">
+        Email
+      </label>
+
+      <div class="column column-10">
+        <input
+          placeholder="foo@bar.com"
+          type="email"
+        />
+      </div>
+    </div>
+
+    <div class="row control-group">
+      <div class="column column-10 offset-2">
+        <button
+          class="primary"
+          type="button"
+        >
+          Submit
+        </button>
+
+        <button
+          class="link"
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+`}</CodeBlock>
     </section>
   );
 };

@@ -63,6 +63,38 @@ const getMenuItems = (firstItemClass) => {
   });
 };
 
+const getGroupedMenu = () => {
+  const menuItems = getMenuItems();
+  const halfwayPoint = Math.floor(menuItems.length / 2);
+
+  let leftItems = [],
+      rightItems = [];
+
+  menuItems.forEach((menuItem, menuItemIndex) => {
+    if (menuItemIndex < halfwayPoint) {
+      leftItems.push(menuItem);
+    } else {
+      rightItems.push(menuItem);
+    }
+  });
+
+  return (
+    <ul className="menu">
+      <li className="menu-group left">
+        <ul className="menu">
+          {leftItems}
+        </ul>
+      </li>
+
+      <li className="menu-group right">
+        <ul className="menu">
+          {rightItems}
+        </ul>
+      </li>
+    </ul>
+  )
+};
+
 class Menus extends Component {
   state = {
     horizontal: false,
@@ -245,6 +277,54 @@ class Menus extends Component {
 
   <li class="menu-item">
     Item 4
+  </li>
+</ul>
+`}</CodeBlock>
+
+        <h4>
+          Menu groups
+        </h4>
+
+        <p>
+          You can also group menu items by sections that can have their own alignment:
+        </p>
+
+        {getGroupedMenu()}
+
+        <CodeBlock>{`
+<ul class="menu">
+  <li class="menu-group left">
+    <ul class="menu">
+      <li>
+         Left menu item 1
+      </li>
+      <li>
+         Left menu item 2
+      </li>
+    </ul>
+  </li>
+  <li class="menu-group center">
+    <ul class="menu">
+      <li>
+         Center menu item 1
+      </li>
+      <li>
+         Center menu item 2
+      </li>
+      <li>
+         Center menu item 3
+      </li>
+    </ul>
+  </li>
+  <li class="menu-group right">
+    <ul class="menu">
+      <li>
+         Right menu item 1
+      </li>
+      <li>
+         Right menu item 2
+      </li>
+    </ul>
   </li>
 </ul>
 `}</CodeBlock>

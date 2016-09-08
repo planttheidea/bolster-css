@@ -27,9 +27,7 @@ const Images = () => {
       </div>
 
       <CodeBlock>{`
-<div>
-    <img class="responsive" src=""/>
-</div>
+<img class="responsive" src="foo.png"/>
 `}</CodeBlock>
 
       <h4>
@@ -46,7 +44,7 @@ const Images = () => {
       />
 
       <CodeBlock>{`
-<img class="rounded" src=""/>
+<img class="rounded" src="foo.png"/>
 `}</CodeBlock>
 
       <h4>
@@ -63,7 +61,7 @@ const Images = () => {
       />
 
       <CodeBlock>{`
-<img class="circle" src=""/>
+<img class="circle" src="foo.png"/>
 `}</CodeBlock>
     </section>
   );

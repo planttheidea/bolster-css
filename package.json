@@ -31,7 +31,7 @@
     "json-loader": "^0.5.4",
     "mkdirp": "^0.5.1",
     "node-sass": "^3.8.0",
-    "postcss-loader": "^0.11.1",
+    "postcss-loader": "^0.13.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-router": "^2.7.0",
@@ -48,7 +48,7 @@
     "postcss",
     "grid",
     "flexbox",
-	"bootstrap"
+    "bootstrap"
   ],
   "license": "MIT",
   "main": "css/bolster.css",
@@ -58,9 +58,10 @@
     "url": "git+https://github.com/planttheidea/bolster-css.git"
   },
   "scripts": {
+    "build-docs": "NODE_ENV=production node ./node_modules/webpack/bin/webpack.js --progress --colors --config=webpack.config.build-docs.js",
     "compile": "NODE_ENV=production node ./compile.js",
     "compile-for-publish": "npm run lint && npm run transpile",
-    "dev": "NODE_ENV=development ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --config=webpack.config.dev.js",
+    "dev": "NODE_ENV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --config=webpack.config.dev.js",
     "lint": "NODE_ENV=test ./node_modules/eslint/bin/eslint.js src",
     "prepublish": "in-publish && npm run compile-for-publish || in-install",
     "transpile": "./node_modules/babel-cli/lib/babel/index.js -d lib/ src/"

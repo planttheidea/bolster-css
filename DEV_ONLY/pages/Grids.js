@@ -167,11 +167,11 @@ const Grids = () => {
 
       <CodeBlock>{`
 <div class="grid">
-    <div class="column-8">
+    <div class="column column-8">
         I will be 66.66667% width (2/3).
     </div>
 
-    <div class="column-xs-4">
+    <div class="column column-xs-4">
         I will be 33.33333% width (1/3).
     </div>
 </div>
@@ -183,11 +183,11 @@ const Grids = () => {
 
       <CodeBlock>{`
 <div class="grid">
-    <div class="column-xs-6 column-md-9">
+    <div class="column column-xs-6 column-md-9">
         I will be 50% on small screens and 75% on larger screens.
     </div>
 
-    <div class="column-xs-6 column-md-3">
+    <div class="column column-xs-6 column-md-3">
         I will be 50% on small screens and 25% on larger screens.
     </div>
 </div>
