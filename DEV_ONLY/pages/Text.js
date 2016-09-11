@@ -26,6 +26,9 @@ const TEXT_ITEMS = [
 ];
 
 const STYLES = {
+  codeBlock: {
+    marginTop: 15
+  },
   group: {
     marginBottom: 15
   }
@@ -49,7 +52,7 @@ const Text = () => {
         });
       })}
 
-      <CodeBlock>
+      <CodeBlock style={STYLES.codeBlock}>
         {HEADER_ITEMS.reduce((codeBlock, type) => {
           return `${codeBlock}
 <h${type}>
@@ -115,7 +118,7 @@ const Text = () => {
         );
       })}
 
-      <CodeBlock>{TEXT_ITEMS.reduce((codeBlock, type) => {
+      <CodeBlock style={STYLES.codeBlock}>{TEXT_ITEMS.reduce((codeBlock, type) => {
         return `${codeBlock}
 <span class="text-${type}">
     I am ${type} text

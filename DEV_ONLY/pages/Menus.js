@@ -11,6 +11,12 @@ const MENU_ITEMS = [
   'Item 4'
 ];
 
+const STYLES = {
+  codeBlock: {
+    marginTop: 15
+  }
+};
+
 const getMenuItemsWithSubmenu = (isSubmenuOpen, onClickToggle, type) => {
   return MENU_ITEMS.map((item, itemIndex) => {
     const isActive = itemIndex === 0;
@@ -129,7 +135,7 @@ class Menus extends Component {
           {getMenuItems()}
         </ul>
 
-        <CodeBlock>{`
+        <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu">
   <li class="menu-item active">
     Item 1 (active)
@@ -161,7 +167,7 @@ class Menus extends Component {
           {getMenuItems()}
         </ul>
 
-        <CodeBlock>{`
+        <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu centered">
   <li class="menu-item active">
     Item 1 (active)
@@ -193,7 +199,7 @@ class Menus extends Component {
           {getMenuItems()}
         </ul>
 
-        <CodeBlock>{`
+        <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu right">
   <li class="menu-item active">
     Item 1 (active)
@@ -229,7 +235,7 @@ class Menus extends Component {
           {getMenuItems('centered')}
         </ul>
 
-        <CodeBlock>{`
+        <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu">
   <li class="menu-item active left">
     Item 1 (active)
@@ -261,7 +267,7 @@ class Menus extends Component {
           {getMenuItems()}
         </ul>
 
-        <CodeBlock>{`
+        <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu justified">
   <li class="menu-item active">
     Item 1 (active)
@@ -291,7 +297,7 @@ class Menus extends Component {
 
         {getGroupedMenu()}
 
-        <CodeBlock>{`
+        <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu">
   <li class="menu-group left">
     <ul class="menu">
@@ -345,7 +351,7 @@ class Menus extends Component {
           Submenus are hidden by default, and visible when the "active" class is added to the nested "menu" element. Please note that the handling of the opening / closing is handled by JS and therefore outside the scope of bolster.
         </p>
 
-        <CodeBlock>{`
+        <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu">
   <li class="menu-item active">
     Item 1 (active)
@@ -386,7 +392,7 @@ class Menus extends Component {
           {getMenuItems()}
         </ul>
 
-        <CodeBlock>{`
+        <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu vertical">
   <li class="menu-item active">
     Item 1 (active)
@@ -418,7 +424,7 @@ class Menus extends Component {
           {getMenuItemsWithSubmenu(vertical, this.onClickSubMenuOpen, 'vertical')}
         </ul>
 
-        <CodeBlock>{`
+        <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu vertical">
   <li class="menu-item active">
     Item 1 (active)

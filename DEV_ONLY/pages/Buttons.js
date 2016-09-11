@@ -219,7 +219,7 @@ const Buttons = () => {
         </button>
 
         <button style={STYLES.button}>
-          button
+          button medium (default)
         </button>
 
         <button

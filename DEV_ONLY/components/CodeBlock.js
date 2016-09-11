@@ -24,14 +24,15 @@ class CodeBlock extends Component {
 
   render() {
     const {
-      children
+      children,
+      ...otherProps
     } = this.props;
     const {
       isShown
     } = this.state;
 
     return (
-      <div>
+      <div {...otherProps}>
         <button
           className="small"
           onClick={this.onClickToggleDisplay}

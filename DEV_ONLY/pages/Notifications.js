@@ -36,6 +36,19 @@ const Notifications = () => {
           </div>
         );
       })}
+
+      <CodeBlock>{NOTIFICATION_TYPES.reduce((codeBlock, notificationType) => {
+return `
+  ${codeBlock}
+  <div class="notification ${notificationType}">
+    <button c;ass="small close">
+      X
+    </button>
+
+    I am a ${notificationType ? notificationType: 'standard'} notification.
+  </div>
+`;
+      }, '')}</CodeBlock>
     </section>
   );
 };

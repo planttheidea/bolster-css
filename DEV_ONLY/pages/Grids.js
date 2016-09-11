@@ -5,6 +5,12 @@ import CodeBlock from '../components/CodeBlock';
 
 const GRID_SIZES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
+const STYLES = {
+  codeBlock: {
+    marginTop: 15
+  }
+};
+
 const Grids = () => {
   return (
     <section>
@@ -36,7 +42,7 @@ const Grids = () => {
         </div>
       </div>
 
-      <CodeBlock>{`
+      <CodeBlock style={STYLES.codeBlock}>{`
 <div class="grid">
     <div class="column">
         column
@@ -103,7 +109,7 @@ const Grids = () => {
         </div>
       </div>
 
-      <CodeBlock>{`
+      <CodeBlock style={STYLES.codeBlock}>{`
 <div class="grid">
     <div class="column align-start">
         I am aligned at the top of the row
@@ -165,7 +171,7 @@ const Grids = () => {
         })}
       </div>
 
-      <CodeBlock>{`
+      <CodeBlock style={STYLES.codeBlock}>{`
 <div class="grid">
     <div class="column column-8">
         I will be 66.66667% width (2/3).
@@ -181,7 +187,7 @@ const Grids = () => {
         These fixed-width sizes are also available with breakpoint-based class names "column-[breakpoint]-[size]". For example, "column-md-6" will apply a 50% width for the column when the screen is larger than the size of the md breakpoint.
       </p>
 
-      <CodeBlock>{`
+      <CodeBlock style={STYLES.codeBlock}>{`
 <div class="grid">
     <div class="column column-xs-6 column-md-9">
         I will be 50% on small screens and 75% on larger screens.
@@ -227,7 +233,7 @@ const Grids = () => {
         </div>
       </div>
 
-      <CodeBlock>{`
+      <CodeBlock style={STYLES.codeBlock}>{`
 <div class="grid">
     <div class="column-9 offset-2">
         I will be 75% width that is offset to the left by 16.16667%.

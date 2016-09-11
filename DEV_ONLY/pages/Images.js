@@ -3,6 +3,9 @@ import React from 'react';
 import CodeBlock from '../components/CodeBlock';
 
 const STYLES = {
+  codeBlock: {
+    marginTop: 15
+  },
   imgContainer: {
     width: 200
   }
@@ -26,7 +29,7 @@ const Images = () => {
         />
       </div>
 
-      <CodeBlock>{`
+      <CodeBlock style={STYLES.codeBlock}>{`
 <img class="responsive" src="foo.png"/>
 `}</CodeBlock>
 
@@ -43,7 +46,7 @@ const Images = () => {
         src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150"
       />
 
-      <CodeBlock>{`
+      <CodeBlock style={STYLES.codeBlock}>{`
 <img class="rounded" src="foo.png"/>
 `}</CodeBlock>
 
@@ -60,7 +63,7 @@ const Images = () => {
         src="https://placeholdit.imgix.net/~text?txtsize=33&txt=150%C3%97150&w=150&h=150"
       />
 
-      <CodeBlock>{`
+      <CodeBlock style={STYLES.codeBlock}>{`
 <img class="circle" src="foo.png"/>
 `}</CodeBlock>
     </section>

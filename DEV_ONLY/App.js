@@ -90,6 +90,10 @@ const {
 } = hashKeys(['content', 'nav']);
 
 class App extends Component {
+  onClickNavLink = () => {
+    window.scrollTo(0, 0);
+  };
+
   render() {
     const {
       children,
@@ -115,6 +119,7 @@ class App extends Component {
                   >
                     <Link
                       className="menu-item-link"
+                      onClick={this.onClickNavLink}
                       to={to}
                     >
                       {text}
