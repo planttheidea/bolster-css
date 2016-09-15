@@ -15,46 +15,7 @@
     width: 100%;
   }
 
-  &.vertical {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    height: 100%;
-    width: auto;
-
-    &.full-width {
-      display: flex;
-      width: 100%;
-    }
-
-    .menu-item {
-      width: 100%;
-    }
-  }
-
-  &.left {
-    justify-content: flex-start;
-  }
-
-  &.centered {
-    justify-content: center;
-  }
-
-  &.right {
-    justify-content: flex-end;
-  }
-
-  &.wrap {
-    flex-wrap: wrap;
-  }
-
-  &.justified {
-    .menu-item {
-      flex-grow: 1;
-      text-align: center;
-    }
-  }
-
+  &-brand,
   &-item {
     background-color: transparent;
     color: inherit;
@@ -84,7 +45,14 @@
     &:hover {
       text-decoration: none;
     }
+  }
 
+  &-brand {
+    font-size: 1.75em;
+    font-weight: bold;
+  }
+
+  &-item {
     &:hover {
       background-color: $gray-extra-light;
       color: $gray-extra-dark;
@@ -146,9 +114,78 @@
     }
   }
 
-  &.vertical &-item & {
-    left: 100%;
-    top: 0;
+  &.left {
+    justify-content: flex-start;
+  }
+
+  &.centered {
+    justify-content: center;
+  }
+
+  &.right {
+    justify-content: flex-end;
+  }
+
+  &.vertical {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    height: 100%;
+    width: auto;
+
+    &.full-width {
+      display: flex;
+      width: 100%;
+    }
+
+    &.top {
+      margin-bottom: auto;
+    }
+
+    &.centered {
+      margin-bottom: auto;
+      margin-top: auto;
+    }
+
+    &.bottom {
+      margin-top: auto;
+    }
+
+    .menu {
+      &-item,
+      &-brand {
+        width: 100%;
+
+        &.top {
+          margin-bottom: auto;
+        }
+
+        &.centered {
+          margin-bottom: auto;
+          margin-top: auto;
+        }
+
+        &.bottom {
+          margin-top: auto;
+        }
+      }
+
+      &-item .menu {
+        left: 100%;
+        top: 0;
+      }
+    }
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.justified {
+    .menu-item {
+      flex-grow: 1;
+      text-align: center;
+    }
   }
 
   &-group {

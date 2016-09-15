@@ -25,7 +25,7 @@ module.exports = {
     preLoaders: [
       {
         include: [
-          path.resolve(__dirname, 'src')
+          path.resolve(__dirname, 'DEV_ONLY')
         ],
         loader: 'eslint-loader',
         test: /\.js$/
@@ -38,7 +38,6 @@ module.exports = {
         test: /\.json$/
       }, {
         include: [
-          path.resolve(__dirname, 'scss'),
           path.resolve(__dirname, 'DEV_ONLY')
         ],
         loader: 'babel',

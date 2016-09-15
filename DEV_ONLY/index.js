@@ -4,6 +4,7 @@ import {
 } from 'react-dom';
 import {
   hashHistory,
+  IndexRoute,
   Route,
   Router
 } from 'react-router';
@@ -22,6 +23,15 @@ render((
       path="/"
     >
       {ROUTES.map(({component, to}, routeIndex) => {
+        if (to === '/') {
+          return (
+            <IndexRoute
+              component={component}
+              key={`route-${routeIndex}`}
+            />
+          );
+        }
+
         return (
           <Route
             component={component}

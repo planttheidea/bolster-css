@@ -5,13 +5,8 @@ import React, {
   PropTypes
 } from 'react';
 import {
-  render
-} from 'react-dom';
-import {
-  hashHistory,
   Link,
-  Route,
-  Router
+  locationShape
 } from 'react-router';
 import Style, {
   hashKeys
@@ -23,6 +18,7 @@ import Base from './pages/Base';
 import Buttons from './pages/Buttons';
 import Forms from './pages/Forms';
 import Grids from './pages/Grids';
+import Home from './pages/Home';
 import Images from './pages/Images';
 import Tags from './pages/Tags';
 import Menus from './pages/Menus';
@@ -39,6 +35,7 @@ Style.setGlobalOptions({
 
 const ROUTES = [
   {
+    component: Home,
     text: 'Home',
     to: '/'
   }, {
@@ -85,14 +82,28 @@ const ROUTES = [
 ];
 
 const {
+  brand,
+  brandLink,
+  container,
   content,
   nav
-} = hashKeys(['content', 'nav']);
+} = hashKeys(['brand', 'brandLink', 'container', 'content', 'nav']);
 
 class App extends Component {
-  onClickNavLink = () => {
-    window.scrollTo(0, 0);
+  static propTypes = {
+    children: PropTypes.node,
+    location: locationShape
   };
+
+  componentDidUpdate({location: previousLocation}) {
+    const {
+      location
+    } = this.props;
+
+    if (location.pathname !== previousLocation.pathname) {
+      this.refs.content.scrollTop = 0;
+    }
+  }
 
   render() {
     const {
@@ -101,52 +112,67 @@ class App extends Component {
     } = this.props;
 
     return (
-      <div>
-        <div className={`${content} clearfix`}>
+      <div className={container}>
+        <nav className={nav}>
+          <ul className="menu vertical full-width">
+            {ROUTES.map(({text, to}, linkIndex) => {
+              const isActive = location.pathname === to;
+
+              return (
+                <li
+                  className={`menu-item${isActive ? ' active' : ''}`}
+                  key={linkIndex}
+                >
+                  <Link
+                    className="menu-item-link"
+                    to={to}
+                  >
+                    {text}
+                  </Link>
+                </li>
+              );
+            })}
+
+            <li className={`menu-brand bottom ${brand}`}>
+              <Link
+                className={`menu-item-link ${brandLink}`}
+                to="/"
+              >
+                bolster
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <div
+          className={`${content} clearfix`}
+          ref="content"
+        >
           {children}
         </div>
 
-        <header className={nav}>
-          <nav>
-            <ul className="menu vertical full-width">
-              {ROUTES.map(({text, to}, linkIndex) => {
-                const isActive = location.pathname === to;
-
-                return (
-                  <li
-                    className={`menu-item${isActive ? ' active' : ''}`}
-                    key={linkIndex}
-                  >
-                    <Link
-                      className="menu-item-link"
-                      onClick={this.onClickNavLink}
-                      to={to}
-                    >
-                      {text}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-        </header>
-
         <Style>{`
-          .${content} {
-            background-color: #f3f3f6;
-            min-height: 100vh;
-            padding: 0 15px 15px 135px;
+          pre {
+            background-color: #fff;
+          }
+
+          .${container} {
+            align-items: stretch;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            height: 100vh;
+            width: 100vw;
           }
 
           .${nav} {
             background-color: #1d1d27;
             box-shadow: 0 0 5px #5d5d5d;
             color: #fff;
-            height: 100vh;
-            left: 0;
-            position: fixed;
-            top: 0;
-            width: 120px;
+            flex-basis: auto;
+            flex-grow: 0;
+            flex-shrink: 0;
+            height: 100%;
           }
 
           .${nav} .menu-item:hover {
@@ -162,6 +188,17 @@ class App extends Component {
 
           .${nav} .active .menu-item-link {
             cursor: default;
+          }
+
+          .${content} {
+            background-color: #f3f3f6;
+            flex-basis: 0;
+            flex-grow: 1;
+            flex-shrink: 0;
+            height: 100%;
+            min-width: 0;
+            overflow: auto;
+            padding: ${location.pathname !== '/' ? '15px' : 0};
           }
         `}</Style>
       </div>

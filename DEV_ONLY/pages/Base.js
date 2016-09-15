@@ -323,7 +323,10 @@ export default App;`}
         The "card" class will apply a simple decoration to a container (background, border, color):
       </p>
 
-      <div className="container card padded-full">
+      <div
+        className="container card padded-full"
+        style={STYLES.group}
+      >
         I am a padded-full container that is also a card.
       </div>
 

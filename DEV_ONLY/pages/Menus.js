@@ -46,7 +46,7 @@ const getMenuItemsWithSubmenu = (isSubmenuOpen, onClickToggle, type) => {
           </ul>
         )}
       </li>
-    )
+    );
   });
 };
 
@@ -65,7 +65,7 @@ const getMenuItems = (firstItemClass) => {
           {item}
         </a>
       </li>
-    )
+    );
   });
 };
 
@@ -98,7 +98,7 @@ const getGroupedMenu = () => {
         </ul>
       </li>
     </ul>
-  )
+  );
 };
 
 class Menus extends Component {

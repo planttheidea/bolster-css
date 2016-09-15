@@ -15,7 +15,7 @@ const getAdditionalLoaders = (isDev) => {
         'style',
         `css${sourceMapString}`,
         'postcss',
-        'sass'
+        `sass${sourceMapString}`
       ],
       test: /\.scss/
     }, {

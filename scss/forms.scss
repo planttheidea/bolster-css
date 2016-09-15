@@ -59,6 +59,11 @@ textarea {
 
   -webkit-user-drag: none;
 
+  &.inline {
+    display: inline-block;
+    width: auto;
+  }
+
   &:invalid {
     border-color: $danger;
   }
