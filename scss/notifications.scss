@@ -36,16 +36,4 @@
   &.warning {
     background-color: $warning;
   }
-
-  .close {
-    background-color: rgba($gray-extra-dark, 0.25);
-    border: 0;
-    color: $white;
-    float: right;
-    margin: -1 * $gutter-large;
-
-    &:hover {
-      background-color: rgba($gray-extra-dark, 0.75);
-    }
-  }
 }

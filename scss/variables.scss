@@ -1,3 +1,4 @@
+// colors
 $white: #fff !default;
 $black: #000 !default;
 
@@ -13,12 +14,47 @@ $danger: #ED2939 !default;
 $success: #009150 !default;
 $warning: #fff44f !default;
 
+// base sizes
+$font-size: 14px !default;
+
+$header-multiplier: 0.35 !default;
+$header-base-size: 3.1 !default;
+
+$header-1-size: #{$header-base-size}rem !default;
+$header-2-size: #{$header-base-size - ($header-multiplier * 2)}rem !default;
+$header-3-size: #{$header-base-size - ($header-multiplier * 3)}rem !default;
+$header-4-size: #{$header-base-size - ($header-multiplier * 4)}rem !default;
+$header-5-size: #{$header-base-size - ($header-multiplier * 5)}rem !default;
+$header-6-size: #{$header-base-size - ($header-multiplier * 6)}rem !default;
+
+$border-radius: 5px !default;
+
+$text-xs-size: 0.7em !default;
+$text-sm-size: 0.85em !default;
+$text-md-size: 1em !default;
+$text-lg-size: 1.15em !default;
+$text-xl-size: 1.3em !default;
+
+$number-of-columns: 12;
+
+$tag-xs-size: 0.55rem !default;
+$tag-sm-size: 0.7rem !default;
+$tag-md-size: 0.85rem !default;
+$tag-lg-size: 1rem !default;
+$tag-xl-size: 1.15rem !default;
+
+// spacing
 $gutter-small: 5px !default;
 $gutter-medium: $gutter-small * 2 !default;
 $gutter-large: $gutter-small * 3 !default;
 
-$border-radius: 5px !default;
+$button-xs-spacing: 0.1em 0.2em !default;
+$button-sm-spacing: 0.25em 0.5em !default;
+$button-md-spacing: 0.5em 1em !default;
+$button-lg-spacing: 0.75em 1.5em !default;
+$button-xl-spacing: 0.1em 2em !default;
 
+// responsive sizes
 $xs-size: 0 !default;
 $xs-size-name: xs !default;
 

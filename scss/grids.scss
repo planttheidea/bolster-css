@@ -42,8 +42,8 @@
   }
 }
 
-@for $column from 1 through 12 {
-  $width: percentage($column / 12);
+@for $column from 1 through $number-of-columns {
+  $width: percentage($column / $number-of-columns);
 
   .column-#{$column} {
     flex-basis: $width;
@@ -61,8 +61,8 @@
   $sizeName: nth($sizeNames, $i);
 
   @media screen and (min-width: #{$size}px) {
-    @for $column from 1 through 12 {
-      $width: percentage($column / 12);
+    @for $column from 1 through $number-of-columns {
+      $width: percentage($column / $number-of-columns);
 
       .column-#{$sizeName}-#{$column} {
         flex-basis: $width;

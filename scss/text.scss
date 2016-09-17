@@ -18,10 +18,6 @@
   }
 }
 
-@mixin setHeaderSize($size) {
-  font-size: #{3.1 - ($size * 0.35)}rem;
-}
-
 @include setTextAlign(left);
 @include setTextAlign(center);
 @include setTextAlign(right);
@@ -32,12 +28,13 @@
 @include setTextColor($danger, danger);
 @include setTextColor($warning, warning);
 
-@include setTextSize(0.7em, extra-small);
-@include setTextSize(0.85em, small);
-@include setTextSize(1.15em, large);
-@include setTextSize(1.3em, extra-large);
+@include setTextSize($text-xs-size, extra-small);
+@include setTextSize($text-sm-size, small);
+@include setTextSize($text-md-size, medium);
+@include setTextSize($text-lg-size, large);
+@include setTextSize($text-xl-size, extra-large);
 
-$headers: 1 2 3 4 5 6;
+$header-sizes: $header-1-size $header-2-size $header-3-size $header-4-size $header-5-size $header-6-size;
 
 h1,
 h2,
@@ -49,10 +46,10 @@ h6,
   margin: 0.75em 0 0.25em;
 }
 
-@each $header in $headers {
+@for $header from 1 through 6 {
   h#{$header},
   .header-#{$header} {
-    @include setHeaderSize($header);
+    font-size: nth($header-sizes, $header);
   }
 }
 

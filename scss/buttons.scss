@@ -2,12 +2,14 @@
 
 button,
 .button {
+  appearance: none;
   background-color: $white;
   border: 1px solid $gray-medium;
   border-radius: $border-radius;
   cursor: pointer;
   display: inline-block;
   line-height: normal;
+  outline: 0;
   padding: 0.5em 1em;
   text-align: center;
   text-decoration: none;
@@ -86,23 +88,23 @@ button,
   }
 
   &.extra-small {
-    padding: 0.1em 0.2em;
+    padding: $button-xs-spacing;
   }
 
   &.small {
-    padding: 0.25em 0.5em;
+    padding: $button-sm-spacing;
   }
 
   &.medium {
-    padding: 0.5em 1em;
+    padding: $button-md-spacing;
   }
 
   &.large {
-    padding: 0.75em 1.5em;
+    padding: $button-lg-spacing;
   }
 
   &.extra-large {
-    padding: 1em 2em;
+    padding: $button-xl-spacing;
   }
 }
 
@@ -136,5 +138,19 @@ button,
       flex-grow: 1;
       flex-shrink: 0;
     }
+  }
+}
+
+.close {
+  appearance: none;
+  background-color: rgba($gray-extra-dark, 0.25);
+  border: 0;
+  color: $white;
+  float: right;
+  margin: -1 * $gutter-large;
+  outline: 0;
+
+  &:hover {
+    background-color: rgba($gray-extra-dark, 0.75);
   }
 }

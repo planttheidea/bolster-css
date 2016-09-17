@@ -65,22 +65,22 @@ $tag-border-radius: 0.425rem;
   }
 
   &.extra-small {
-    font-size: 0.55rem;
+    font-size: $tag-xs-size;
   }
 
   &.small {
-    font-size: 0.7rem;
+    font-size: $tag-sm-size;
   }
 
   &.medium {
-    font-size: 0.85rem;
+    font-size: $tag-md-size;
   }
 
   &.large {
-    font-size: 1rem;
+    font-size: $tag-lg-size;
   }
 
   &.extra-large {
-    font-size: 1.15rem;
+    font-size: $tag-xl-size;
   }
 }
