@@ -1,23 +1,27 @@
-$white: #fff;
-$black: #000;
+$white: #fff !default;
+$black: #000 !default;
 
-$gray-extra-dark: #1f1f1f;
-$gray-dark: #5d5d5d;
-$gray-medium: #a0a0a0;
-$gray-light: #d5d5d5;
-$gray-extra-light: #f1f1f1;
+$gray-extra-dark: #1f1f1f !default;
+$gray-dark: #5d5d5d !default;
+$gray-medium: #a0a0a0 !default;
+$gray-light: #d5d5d5 !default;
+$gray-extra-light: #f1f1f1 !default;
 
-$primary: #1560BD;
-$info: #0087BD;
-$danger: #ED2939;
-$success: #009150;
-$warning: #fff44f;
+$primary: #1560BD !default;
+$info: #0087BD !default;
+$danger: #ED2939 !default;
+$success: #009150 !default;
+$warning: #fff44f !default;
 
-$gutter-large: 15px;
-$gutter-medium: 10px;
-$gutter-small: 5px;
+$gutter-small: 5px !default;
+$gutter-medium: $gutter-small * 2 !default;
+$gutter-large: $gutter-small * 3 !default;
 
-$border-radius: 5px;
+$border-radius: 5px !default;
 
-$sizes: 0 768 1024 1200 1600;
-$sizeNames: xs sm md lg xl;
+$sizes: 0 768 1024 1200 1600 !default;
+$sizeNames: xs sm md lg xl !default;
+
+@if length($sizes) != length($sizeNames) {
+  @error "The list of $sizes you provide needs to have the same length as the list of $sizeNames.";
+}

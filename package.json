@@ -61,7 +61,7 @@
   },
   "scripts": {
     "build-docs": "NODE_ENV=production node ./node_modules/webpack/bin/webpack.js --progress --colors --config=webpack.config.build-docs.js",
-    "compile": "NODE_ENV=production node ./compile.js",
+    "compile": "NODE_ENV=production node ./compile-sass.js",
     "compile-for-publish": "npm run lint && npm run compile && npm run build-docs",
     "dev": "NODE_ENV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --config=webpack.config.dev.js",
     "lint": "NODE_ENV=test ./node_modules/eslint/bin/eslint.js src",

@@ -15,6 +15,8 @@ const DIST_DIRECTORY = path.resolve(__dirname, 'dist');
 const NODE_MODULES_DIRECTORY = path.resolve(__dirname, 'node_modules');
 
 const MAIN_FILE = 'bolster.scss';
+const VARIABLES_FILE = 'variables.scss';
+
 const NORMALIZE_CSS_FILE = 'normalize.css';
 const NORMALIZE_SCSS_FILE = 'normalize.scss';
 
@@ -69,13 +71,15 @@ const compileSassFiles = () => {
             const distMapFilePath = path.join(DIST_DIRECTORY, `${stripExtension(file)}.map.css`);
             const distMinifiedFilePath = path.join(DIST_DIRECTORY, `${stripExtension(file)}.min.css`);
 
-            postcss([
-              autoprefixer
-            ])
-              .process(css)
-              .then((result) => {
-                fs.writeFileSync(libFilePath, result.css);
-              });
+            if (file !== VARIABLES_FILE) {
+              postcss([
+                autoprefixer
+              ])
+                .process(css)
+                .then((result) => {
+                  fs.writeFileSync(libFilePath, result.css);
+                });
+            }
 
             if (file === MAIN_FILE) {
               postcss([
