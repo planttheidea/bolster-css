@@ -3,7 +3,7 @@ import {
   render
 } from 'react-dom';
 import {
-  hashHistory,
+  browserHistory,
   IndexRoute,
   Route,
   Router
@@ -17,7 +17,7 @@ const div = document.createElement('div');
 div.id = 'app-container';
 
 render((
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
     <Route
       component={App}
       path="/"

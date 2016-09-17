@@ -16,6 +16,7 @@ module.exports = Object.assign({}, defaultConfig, {
 
   devServer: {
     contentBase: './dist',
+    historyApiFallback: true,
     host: 'localhost',
     inline: true,
     lazy: false,
