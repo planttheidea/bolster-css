@@ -19,8 +19,23 @@ $gutter-large: $gutter-small * 3 !default;
 
 $border-radius: 5px !default;
 
-$sizes: 0 768 1024 1200 1600 !default;
-$sizeNames: xs sm md lg xl !default;
+$xs-size: 0 !default;
+$xs-size-name: xs !default;
+
+$sm-size: 768 !default;
+$sm-size-name: sm !default;
+
+$md-size: 1024 !default;
+$md-size-name: md !default;
+
+$lg-size: 1200 !default;
+$lg-size-name: lg !default;
+
+$xl-size: 1600 !default;
+$xl-size-name: xl !default;
+
+$sizes: $xs-size $sm-size $md-size $lg-size $xl-size !default;
+$sizeNames: $xs-size-name $sm-size-name $md-size-name $lg-size-name $xl-size-name !default;
 
 @if length($sizes) != length($sizeNames) {
   @error "The list of $sizes you provide needs to have the same length as the list of $sizeNames.";
