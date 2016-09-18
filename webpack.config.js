@@ -6,8 +6,6 @@ const eslintFriendlyFormatter = require('eslint-friendly-formatter');
 
 const autoprefixer = require('autoprefixer');
 
-const PORT = 3000;
-
 module.exports = {
   entry: [
     path.resolve(__dirname, 'DEV_ONLY', 'index.js')

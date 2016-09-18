@@ -3,14 +3,9 @@
   "bugs": {
     "url": "https://github.com/planttheidea/bolster-css/issues"
   },
-  "dependencies": {
-    "autoprefixer": "^6.4.1",
-    "normalize.css": "^4.2.0",
-    "postcss": "^5.2.0",
-    "precss": "^1.4.0"
-  },
   "description": "A modern, modular CSS framework for rapid application scaffolding",
   "devDependencies": {
+    "autoprefixer": "^6.4.1",
     "babel": "6.5.2",
     "babel-cli": "6.14.0",
     "babel-eslint": "6.1.2",
@@ -35,6 +30,8 @@
     "json-loader": "^0.5.4",
     "mkdirp": "^0.5.1",
     "node-sass": "^3.10.0",
+    "normalize.css": "^4.2.0",
+    "postcss": "^5.2.0",
     "postcss-loader": "^0.13.0",
     "raleway-webfont": "^3.0.1",
     "react": "^15.3.1",
