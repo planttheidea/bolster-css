@@ -41,7 +41,7 @@ const Notifications = () => {
 return `
   ${codeBlock}
   <div class="notification ${notificationType}">
-    <button c;ass="small close">
+    <button class="small close">
       X
     </button>
 
