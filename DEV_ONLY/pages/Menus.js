@@ -34,10 +34,8 @@ const getMenuItemsWithSubmenu = (isSubmenuOpen, onClickToggle, type) => {
           onClick={onClickToggle}
         >
           {item} {isItemWithSubMenu && (
-          <span>
-              &#9660;
-            </span>
-        )}
+            <i className={`chevron fa fa-chevron-${isSubmenuOpen ? 'up' : 'down'}`}/>
+          )}
         </a>
 
         {isItemWithSubMenu && (

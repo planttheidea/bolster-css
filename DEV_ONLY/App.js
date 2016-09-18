@@ -12,6 +12,8 @@ import Style, {
   hashKeys
 } from 'react-style-tag';
 
+import 'raleway-webfont/raleway.css';
+import 'font-awesome/css/font-awesome.css';
 import '../scss/bolster.scss';
 
 import Base from './pages/Base';
@@ -25,8 +27,6 @@ import Menus from './pages/Menus';
 import Notifications from './pages/Notifications';
 import Tables from './pages/Tables';
 import Text from './pages/Text';
-
-import 'raleway-webfont/raleway.css';
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
@@ -88,8 +88,12 @@ const {
   brandLink,
   container,
   content,
+  externals,
+  externalsIcon,
+  externalsLink,
   nav
-} = hashKeys(['brand', 'brandLink', 'container', 'content', 'nav']);
+} = hashKeys(['brand', 'brandLink', 'container', 'content', 'externals',
+  'externalsIcon', 'externalsLink', 'nav']);
 
 class App extends Component {
   static propTypes = {
@@ -135,7 +139,20 @@ class App extends Component {
               );
             })}
 
-            <li className={`menu-brand bottom ${brand}`}>
+            <li className={`menu-item bottom ${externals}`}>
+              <a
+                className={externalsLink}
+                href="https://github.com/planttheidea/bolster-css"
+                rel="nofollow"
+                target="_blank"
+              >
+                <i className={`fa fa-github ${externalsIcon}`}/>
+
+                github
+              </a>
+            </li>
+
+            <li className={`menu-brand ${brand}`}>
               <Link
                 className={`menu-item-link ${brandLink}`}
                 to="/"
@@ -207,6 +224,33 @@ class App extends Component {
             min-width: 0;
             overflow: auto;
             padding: ${location.pathname !== '/' ? '15px' : 0};
+          }
+
+          .menu-item.${externals} {
+            font-size: 0.85rem;
+            padding: 0;
+            text-align: center;
+          }
+
+          .${externalsLink} {
+            color: inherit;
+          }
+
+          .${externalsLink}:active,
+          .${externalsLink}:focus,
+          .${externalsLink}:hover {
+            text-decoration: none;
+          }
+
+          .${externalsIcon} {
+            font-size: 1.5rem;
+            margin-right: 5px;
+            padding: 5px 0;
+          }
+
+          .fa.chevron {
+            font-size: 10px;
+            vertical-align: middle;
           }
         `}</Style>
       </div>

@@ -28,20 +28,20 @@ const getAdditionalLoaders = (isDev) => {
       ],
       test: /\.css/
     }, {
-      loader: 'url?limit=65000&mimetype=image/svg+xml&name=[hash].[ext]',
-      test: /\.svg$/
+      loader: 'url?limit=10000&mimetype=application/font-woff',
+      test: /\.woff(\?v=\d+\.\d+\.\d+)?$/
     }, {
-      loader: 'url?limit=65000&mimetype=application/font-woff&name=[hash].[ext]',
-      test: /\.woff$/
+      loader: 'url?limit=10000&mimetype=application/font-woff',
+      test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/
     }, {
-      loader: 'url?limit=65000&mimetype=application/font-woff2&name=[hash].[ext]',
-      test: /\.woff2$/
+      loader: 'url?limit=10000&mimetype=application/octet-stream',
+      test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/
     }, {
-      loader: 'url?limit=65000&mimetype=application/octet-stream&name=[hash].[ext]',
-      test: /\.[ot]tf$/
+      loader: 'file',
+      test: /\.eot(\?v=\d+\.\d+\.\d+)?$/
     }, {
-      loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name=[hash].[ext]',
-      test: /\.eot$/
+      loader: 'url?limit=10000&mimetype=image/svg+xml',
+      test: /\.svg(\?v=\d+\.\d+\.\d+)?$/
     }
   ];
 };

@@ -8,7 +8,8 @@ import {
 import {
   IndexRoute,
   Route,
-  Router
+  Router,
+  useRouterHistory
 } from 'react-router';
 import App, {
   ROUTES
@@ -18,7 +19,8 @@ const div = document.createElement('div');
 
 div.id = 'app-container';
 
-const hashHistory = createHashHistory({
+const createHistory = useRouterHistory(createHashHistory);
+const hashHistory = createHistory({
   queryKey: false
 });
 
