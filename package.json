@@ -69,8 +69,7 @@
     "compile-sass": "NODE_ENV=production node ./compile-sass.js",
     "dev": "NODE_ENV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --config=webpack.config.dev.js",
     "lint": "NODE_ENV=test ./node_modules/eslint/bin/eslint.js src",
-    "prepublish": "in-publish && npm run compile-for-publish || in-install",
-    "transpile": "./node_modules/babel-cli/lib/babel/index.js -d lib/ src/"
+    "prepublish": "in-publish && npm run compile-for-publish || in-install"
   },
   "version": "0.1.0"
 }
