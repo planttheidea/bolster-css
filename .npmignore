@@ -1,8 +1,13 @@
 .idea/
 DEV_ONLY/
 node_modules/
+docs/
 .babelrc
 .eslintrc
 .gitignore
 .npmignore
+compile-sass.js
+webpack.config.build-docs.js
 webpack.config.dev.js
+webpack.config.js
+webpackConfigUtils.js
