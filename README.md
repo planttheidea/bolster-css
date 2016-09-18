@@ -200,9 +200,9 @@ While `bolster` has been tested on a variety of browsers, it is still very much 
 To contribute, clone the repo and `npm i` to get the dependencies. npm scripts available:
 * `build-docs` => Compiles the application in `DEV_ONLY` and places the output JS file in the `docs` folder
 * `compile-sass` => Compiles the SCSS files into CSS files in the `css` folder, as well as complete files in `dist`
-* `compile-for-publish` => runs the `lint`, `compile-sass`, and `build-docs` scripts
+* `compile-with-docs` => runs the `lint`, `compile-sass`, and `build-docs` scripts
 * `dev` => runs the webpack dev server for the playground
 * `lint` => runs ESLint against files in the `src` folder
-* `prepublish` => if in publish, runs `compile-for-publish`
+* `prepublish` => if in publish, runs `compile-sass`
 
 Happy `bolster`ing!

@@ -65,11 +65,11 @@
   },
   "scripts": {
     "build-docs": "NODE_ENV=production node ./node_modules/webpack/bin/webpack.js --progress --colors --config=webpack.config.build-docs.js",
-    "compile-for-publish": "npm run lint && npm run compile-sass && npm run build-docs",
     "compile-sass": "NODE_ENV=production node ./compile-sass.js",
+    "compile-with-docs": "npm run lint && npm run compile-sass && npm run build-docs",
     "dev": "NODE_ENV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --config=webpack.config.dev.js",
     "lint": "NODE_ENV=test ./node_modules/eslint/bin/eslint.js src",
-    "prepublish": "in-publish && npm run compile-for-publish || in-install"
+    "prepublish": "in-publish && npm run compile-sass || in-install"
   },
   "version": "0.1.1"
 }
