@@ -175,12 +175,16 @@ const Base = () => {
       </h4>
 
       <p>
-        <code>p</code> and <code>blockquote</code> elements:
+        <code>p</code>, <code>hr</code>, and <code>blockquote</code> elements:
       </p>
 
       <p>
         I am a block of text in a paragraph
       </p>
+
+      <hr/>
+      I am between two hr tags
+      <hr/>
 
       <blockquote>
         I am a block of text in a blockquote
@@ -190,6 +194,8 @@ const Base = () => {
 <p>
   I am a block of text in a paragraph
 </p>
+
+<hr/>
 
 <blockquote>
   I am a block of text in a blockquote

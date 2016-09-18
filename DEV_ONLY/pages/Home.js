@@ -101,7 +101,7 @@ $ cp node_modules/bolster/dist/bolster.min.css static/css/bolster.min.css
         </h5>
 
         <p>
-          You only use what you need. The entire library is only 6.4KB minified and gzipped, but if you only want to use pieces then you can import each component type (buttons, forms, grids, etc.) individually.
+          You only use what you need. The entire library is only 6.6KB minified and gzipped, but if you only want to use pieces then you can import each component type (buttons, forms, grids, etc.) individually.
         </p>
 
         <h5>
@@ -145,6 +145,7 @@ $ cp node_modules/bolster/dist/bolster.min.css static/css/bolster.min.css
       .${title} {
         font-size: 4rem;
         font-weight: bold;
+        margin-bottom: 0;
       }
 
       .${subtitle} {

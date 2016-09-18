@@ -12,7 +12,7 @@
 html,
 body {
   color: $gray-extra-dark;
-  font-size: $font-size;
+  min-height: 100vh;
 }
 
 html {
@@ -26,6 +26,11 @@ body {
   background-color: $white;
   color: $gray-extra-dark;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: $font-size;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
 }
 
 .hidden,
@@ -157,7 +162,7 @@ pre {
   border-radius: $border-radius;
   color: $gray-dark;
   display: block;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
   line-height: 1.2rem;
   margin: 1em 0;
   padding: 1em;
@@ -172,4 +177,17 @@ pre {
     padding: 0;
     white-space: pre-wrap;
   }
+}
+
+hr {
+  margin: 2em 0;
+  border: 0;
+  border-top: 1px solid $gray-dark;
+}
+
+::selection,
+input::selection,
+textarea::selection {
+  background-color: $info;
+  color: $white;
 }

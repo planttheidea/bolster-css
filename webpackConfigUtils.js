@@ -27,6 +27,21 @@ const getAdditionalLoaders = (isDev) => {
         `css${sourceMapString}`
       ],
       test: /\.css/
+    }, {
+      loader: 'url?limit=65000&mimetype=image/svg+xml&name=[hash].[ext]',
+      test: /\.svg$/
+    }, {
+      loader: 'url?limit=65000&mimetype=application/font-woff&name=[hash].[ext]',
+      test: /\.woff$/
+    }, {
+      loader: 'url?limit=65000&mimetype=application/font-woff2&name=[hash].[ext]',
+      test: /\.woff2$/
+    }, {
+      loader: 'url?limit=65000&mimetype=application/octet-stream&name=[hash].[ext]',
+      test: /\.[ot]tf$/
+    }, {
+      loader: 'url?limit=65000&mimetype=application/vnd.ms-fontobject&name=[hash].[ext]',
+      test: /\.eot$/
     }
   ];
 };

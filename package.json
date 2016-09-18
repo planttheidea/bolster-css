@@ -27,6 +27,7 @@
     "eslint-friendly-formatter": "2.0.6",
     "eslint-loader": "1.5.0",
     "eslint-plugin-react": "^6.2.2",
+    "file-loader": "^0.9.0",
     "history": "^2.1.2",
     "html-webpack-plugin": "^2.22.0",
     "in-publish": "^2.0.0",
@@ -34,14 +35,16 @@
     "mkdirp": "^0.5.1",
     "node-sass": "^3.10.0",
     "postcss-loader": "^0.13.0",
+    "raleway-webfont": "^3.0.1",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-router": "^2.8.1",
     "react-style-tag": "^1.2.1",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "1.13.2",
-    "webpack-dev-server": "1.15.2"
+    "webpack-dev-server": "1.16.0"
   },
   "homepage": "https://github.com/planttheidea/bolster-css#readme",
   "keywords": [
@@ -61,8 +64,8 @@
   },
   "scripts": {
     "build-docs": "NODE_ENV=production node ./node_modules/webpack/bin/webpack.js --progress --colors --config=webpack.config.build-docs.js",
-    "compile": "NODE_ENV=production node ./compile-sass.js",
-    "compile-for-publish": "npm run lint && npm run compile && npm run build-docs",
+    "compile-for-publish": "npm run lint && npm run compile-sass && npm run build-docs",
+    "compile-sass": "NODE_ENV=production node ./compile-sass.js",
     "dev": "NODE_ENV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors --config=webpack.config.dev.js",
     "lint": "NODE_ENV=test ./node_modules/eslint/bin/eslint.js src",
     "prepublish": "in-publish && npm run compile-for-publish || in-install",

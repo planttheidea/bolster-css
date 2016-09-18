@@ -26,6 +26,8 @@ import Notifications from './pages/Notifications';
 import Tables from './pages/Tables';
 import Text from './pages/Text';
 
+import 'raleway-webfont/raleway.css';
+
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 Style.setGlobalOptions({
@@ -152,6 +154,10 @@ class App extends Component {
         </div>
 
         <Style>{`
+          body {
+            font-family: Raleway, 'Helvetica Neue', Helvetica, Aria, sans-serif;
+          }
+
           pre {
             background-color: #fff;
           }
@@ -173,10 +179,12 @@ class App extends Component {
             flex-grow: 0;
             flex-shrink: 0;
             height: 100%;
+            z-index: 5;
           }
 
           .${nav} .menu-item:hover {
-            background-color: #a0a0a0;
+            background-color: #5d5d5d;
+            color: #fff;
           }
 
           .${nav} .active,
