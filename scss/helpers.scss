@@ -87,3 +87,79 @@ $minSize: nth($sizes, 2);
     float: none;
   }
 }
+
+$sizeNamesLength: length($sizeNames);
+
+.hidden {
+  @media print {
+    &-print {
+      display: none;
+    }
+  }
+
+  @for $index from 1 through$sizeNamesLength {
+    $sizeName: nth($sizeNames, $index);
+    $size: nth($sizes, $index);
+
+    $mediaQuery: '';
+
+    @if ($index == 1) {
+      $nextSize: nth($sizes, $index + 1);
+
+      $mediaQuery: (max-width: #{$nextSize - 1}px);
+    } @else {
+      $mediaQuery: (min-width: #{$size}px);
+
+      @if ($index < $sizeNamesLength) {
+        $nextSize: nth($sizes, $index + 1);
+
+        @if ($mediaQuery != '') {
+          $mediaQuery: $mediaQuery + and;
+        }
+
+        $mediaQuery: $mediaQuery + (max-width: #{$nextSize - 1}px);
+      }
+    }
+
+    @media #{$mediaQuery} {
+      &-#{$sizeName} {
+        display: none;
+      }
+    }
+  }
+}
+
+@for $index from 1 through$sizeNamesLength {
+  $sizeName: nth($sizeNames, $index);
+  $size: nth($sizes, $index);
+
+  $mediaQuery: '';
+
+  @if ($index < $sizeNamesLength) {
+    $nextSize: nth($sizes, $index + 1);
+
+    $mediaQuery: (min-width: #{$nextSize}px);
+  }
+
+  @if ($index != 1) {
+    $mediaQueryAddon: screen and (max-width: #{$size - 1}px);
+
+    @if ($mediaQuery != '') {
+      $mediaQuery: #{$mediaQuery}, #{$mediaQueryAddon};
+    } @else {
+      $mediaQuery: $mediaQuery + $mediaQueryAddon;
+    }
+  }
+
+  @media #{$mediaQuery} {
+    .#{$sizeName}-only {
+      display: none;
+    }
+  }
+}
+
+@media only screen {
+  .print-only {
+    display: none;
+  }
+}

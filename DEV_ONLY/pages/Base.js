@@ -341,6 +341,40 @@ export default App;`}
   I am a padded-full container that is also a card.
 </div>
 `}</CodeBlock>
+
+      <p>
+        The "hidden-*" classes will hide the element at the screen size specified (xs, sm, md, lg, xl):
+      </p>
+
+      <div
+        className="hidden-xs"
+        style={STYLES.group}
+      >
+        I am hidden on xs screen sizes.
+      </div>
+
+      <CodeBlock>{`
+<div class="hidden-xs">
+  I am hidden on xs screen sizes.
+</div>
+`}</CodeBlock>
+
+      <p>
+        The "*-only" classes will do the opposite, only show the element at the screen size specified (xs, sm, md, lg, xl):
+      </p>
+
+      <div
+        className="lg-only"
+        style={STYLES.group}
+      >
+        I am only shown on lg screen sizes.
+      </div>
+
+      <CodeBlock>{`
+<div class=lg-only">
+  I am only shown on lg screen sizes.
+</div>
+`}</CodeBlock>
     </section>
   );
 };

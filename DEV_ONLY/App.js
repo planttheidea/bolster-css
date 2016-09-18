@@ -91,14 +91,20 @@ const {
   externals,
   externalsIcon,
   externalsLink,
-  nav
+  hamburger,
+  nav,
+  navShown
 } = hashKeys(['brand', 'brandLink', 'container', 'content', 'externals',
-  'externalsIcon', 'externalsLink', 'nav']);
+  'hamburger', 'externalsIcon', 'externalsLink', 'nav', 'navShown']);
 
 class App extends Component {
   static propTypes = {
     children: PropTypes.node,
     location: locationShape
+  };
+
+  state = {
+    menuOpen: false
   };
 
   componentDidUpdate({location: previousLocation}) {
@@ -111,15 +117,42 @@ class App extends Component {
     }
   }
 
+  onClickToggleMenu = () => {
+    const {
+      menuOpen
+    } = this.state;
+
+    this.setState({
+      menuOpen: !menuOpen
+    });
+  };
+
   render() {
     const {
       children,
       location
     } = this.props;
+    const {
+      menuOpen
+    } = this.state;
+
+    let navClassName = `${nav}`;
+
+    if (menuOpen) {
+      navClassName += ` ${navShown}`;
+    }
 
     return (
       <div className={container}>
-        <nav className={nav}>
+        <nav className={navClassName}>
+          <div
+            className={`xs-only ${hamburger}`}
+            onClick={this.onClickToggleMenu}
+            role="button"
+          >
+            <i className="fa fa-bars"/>
+          </div>
+
           <ul className="menu vertical full-width">
             {ROUTES.map(({text, to}, linkIndex) => {
               const isActive = location.pathname === to;
@@ -196,7 +229,13 @@ class App extends Component {
             flex-grow: 0;
             flex-shrink: 0;
             height: 100%;
+            position: relative;
             z-index: 5;
+          }
+
+          .${nav} .menu {
+            position: relative;
+            z-index: 6;
           }
 
           .${nav} .menu-item:hover {
@@ -213,6 +252,18 @@ class App extends Component {
 
           .${nav} .active .menu-item-link {
             cursor: default;
+          }
+
+          .${hamburger} {
+            background-color: #1d1d27;
+            box-shadow: 0 0 5px #5d5d5d;
+            color: #fff;
+            cursor: pointer;
+            left: 100%;
+            padding: 10px 15px;
+            position: absolute;
+            top: 0;
+            z-index: inherit;
           }
 
           .${content} {
@@ -251,6 +302,21 @@ class App extends Component {
           .fa.chevron {
             font-size: 10px;
             vertical-align: middle;
+          }
+
+          @media (max-width: 767px) {
+            .${nav} {
+              bottom: 0;
+              left: 0;
+              position: fixed;
+              top: 0;
+              transform: translateX(-100%);
+              transition: transform 150ms ease-in-out;
+            }
+
+            .${nav}.${navShown} {
+              transform: none;
+            }
           }
         `}</Style>
       </div>
