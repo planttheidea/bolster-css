@@ -71,5 +71,5 @@
     "lint": "NODE_ENV=test ./node_modules/eslint/bin/eslint.js src",
     "prepublish": "in-publish && npm run compile-for-publish || in-install"
   },
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
