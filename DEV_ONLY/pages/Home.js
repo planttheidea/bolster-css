@@ -1,5 +1,5 @@
 import React from 'react';
-import Style, { hashKeys } from 'react-style-tag';
+import { Style, hashKeys } from 'react-style-tag';
 
 const { content, header, logoContainer, subtitle, title } = hashKeys([
   'content',

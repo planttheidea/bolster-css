@@ -14,12 +14,11 @@ const NOTIFICATION_TYPES = [
 const Notifications = () => {
   return (
     <section>
-      <h4>
-        Notifications
-      </h4>
+      <h4>Notifications</h4>
 
       <p>
-        You can provide any context as a notification, with styling for the "close" button as a child.
+        You can provide any context as a notification, with styling for the
+        "close" button as a child.
       </p>
 
       {NOTIFICATION_TYPES.map((notificationType, notificationTypeIndex) => {
@@ -28,27 +27,27 @@ const Notifications = () => {
             className={`notification ${notificationType}`}
             key={`notification-type-${notificationTypeIndex}`}
           >
-            <button className="small close">
-              X
-            </button>
-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit
+            <button className="small close">X</button>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum
+            dolor sit amet, consectetur adipiscing elit
           </div>
         );
       })}
 
-      <CodeBlock>{NOTIFICATION_TYPES.reduce((codeBlock, notificationType) => {
-return `
+      <CodeBlock>
+        {NOTIFICATION_TYPES.reduce((codeBlock, notificationType) => {
+          return `
   ${codeBlock}
   <div class="notification ${notificationType}">
     <button class="small close">
       X
     </button>
 
-    I am a ${notificationType ? notificationType: 'standard'} notification.
+    I am a ${notificationType ? notificationType : 'standard'} notification.
   </div>
 `;
-      }, '')}</CodeBlock>
+        }, '')}
+      </CodeBlock>
     </section>
   );
 };

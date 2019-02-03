@@ -1,8 +1,9 @@
 import 'babel-polyfill';
 
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Link, locationShape } from 'react-router';
-import Style, { hashKeys } from 'react-style-tag';
+import { Style, hashKeys } from 'react-style-tag';
 
 import 'raleway-webfont/raleway.css';
 import 'font-awesome/css/font-awesome.css';

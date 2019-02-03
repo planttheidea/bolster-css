@@ -1,15 +1,8 @@
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 
 import CodeBlock from '../components/CodeBlock';
 
-const MENU_ITEMS = [
-  'Item 1 (active)',
-  'Item 2',
-  'Item 3 (disabled)',
-  'Item 4'
-];
+const MENU_ITEMS = ['Item 1 (active)', 'Item 2', 'Item 3 (disabled)', 'Item 4'];
 
 const STYLES = {
   codeBlock: {
@@ -28,13 +21,14 @@ const getMenuItemsWithSubmenu = (isSubmenuOpen, onClickToggle, type) => {
         disabled={itemIndex === 2}
         key={`menu-item-${itemIndex}`}
       >
-        <a
-          className="menu-item-link"
-          data-type={type}
-          onClick={onClickToggle}
-        >
-          {item} {isItemWithSubMenu && (
-            <i className={`chevron fa fa-chevron-${isSubmenuOpen ? 'up' : 'down'}`}/>
+        <a className="menu-item-link" data-type={type} onClick={onClickToggle}>
+          {item}{' '}
+          {isItemWithSubMenu && (
+            <i
+              className={`chevron fa fa-chevron-${
+                isSubmenuOpen ? 'up' : 'down'
+              }`}
+            />
           )}
         </a>
 
@@ -59,9 +53,7 @@ const getMenuItems = (firstItemClass) => {
         disabled={itemIndex === 2}
         key={`menu-item-${itemIndex}`}
       >
-        <a className="menu-item-link">
-          {item}
-        </a>
+        <a className="menu-item-link">{item}</a>
       </li>
     );
   });
@@ -72,7 +64,7 @@ const getGroupedMenu = () => {
   const halfwayPoint = Math.floor(menuItems.length / 2);
 
   let leftItems = [],
-      rightItems = [];
+    rightItems = [];
 
   menuItems.forEach((menuItem, menuItemIndex) => {
     if (menuItemIndex < halfwayPoint) {
@@ -85,15 +77,11 @@ const getGroupedMenu = () => {
   return (
     <ul className="menu">
       <li className="menu-group left">
-        <ul className="menu">
-          {leftItems}
-        </ul>
+        <ul className="menu">{leftItems}</ul>
       </li>
 
       <li className="menu-group right">
-        <ul className="menu">
-          {rightItems}
-        </ul>
+        <ul className="menu">{rightItems}</ul>
       </li>
     </ul>
   );
@@ -107,31 +95,27 @@ class Menus extends Component {
 
   onClickSubMenuOpen = (e) => {
     const type = e.currentTarget.getAttribute('data-type');
-    
+
     this.setState({
       [type]: !this.state[type]
     });
   };
 
   render() {
-    const {
-      horizontal,
-      vertical
-    } = this.state;
+    const { horizontal, vertical } = this.state;
 
     return (
       <section>
-        <h4>
-          Menu
-        </h4>
+        <h4>Menu</h4>
 
         <p>
-          The standard menu is a horizontal list of items (usually links) that are left-aligned. To apply the styles, add the "menu" class to the container, the "menu-item" class to each item in the list, and the "menu-item-link" class to each link in the item.
+          The standard menu is a horizontal list of items (usually links) that
+          are left-aligned. To apply the styles, add the "menu" class to the
+          container, the "menu-item" class to each item in the list, and the
+          "menu-item-link" class to each link in the item.
         </p>
 
-        <ul className="menu">
-          {getMenuItems()}
-        </ul>
+        <ul className="menu">{getMenuItems()}</ul>
 
         <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu">
@@ -153,17 +137,14 @@ class Menus extends Component {
 </ul>
 `}</CodeBlock>
 
-        <h4>
-          Centered menu
-        </h4>
+        <h4>Centered menu</h4>
 
         <p>
-          If you apply the "centered" class to the container as well, it will align the items in the container to the center.
+          If you apply the "centered" class to the container as well, it will
+          align the items in the container to the center.
         </p>
 
-        <ul className="menu centered">
-          {getMenuItems()}
-        </ul>
+        <ul className="menu centered">{getMenuItems()}</ul>
 
         <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu centered">
@@ -185,17 +166,14 @@ class Menus extends Component {
 </ul>
 `}</CodeBlock>
 
-        <h4>
-          Right menu
-        </h4>
+        <h4>Right menu</h4>
 
         <p>
-          If you apply the "right" class to the container, it will align the items in the container to the right.
+          If you apply the "right" class to the container, it will align the
+          items in the container to the right.
         </p>
 
-        <ul className="menu right">
-          {getMenuItems()}
-        </ul>
+        <ul className="menu right">{getMenuItems()}</ul>
 
         <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu right">
@@ -217,21 +195,17 @@ class Menus extends Component {
 </ul>
 `}</CodeBlock>
 
-        <h4>
-          Alignment of individual items
-        </h4>
+        <h4>Alignment of individual items</h4>
 
         <p>
-          You can also apply the "left", "centered", and "right" classes to individual items, and it will align that item without disturbing the rest of the items in the list.
+          You can also apply the "left", "centered", and "right" classes to
+          individual items, and it will align that item without disturbing the
+          rest of the items in the list.
         </p>
 
-        <ul className="menu">
-          {getMenuItems('left')}
-        </ul>
+        <ul className="menu">{getMenuItems('left')}</ul>
 
-        <ul className="menu">
-          {getMenuItems('centered')}
-        </ul>
+        <ul className="menu">{getMenuItems('centered')}</ul>
 
         <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu">
@@ -253,17 +227,14 @@ class Menus extends Component {
 </ul>
 `}</CodeBlock>
 
-        <h4>
-          Justified menu
-        </h4>
+        <h4>Justified menu</h4>
 
         <p>
-          If you apply the "justified" class to the container as well, it will cause the items to grow to fill the width of the container.
+          If you apply the "justified" class to the container as well, it will
+          cause the items to grow to fill the width of the container.
         </p>
 
-        <ul className="menu justified">
-          {getMenuItems()}
-        </ul>
+        <ul className="menu justified">{getMenuItems()}</ul>
 
         <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu justified">
@@ -285,12 +256,11 @@ class Menus extends Component {
 </ul>
 `}</CodeBlock>
 
-        <h4>
-          Menu groups
-        </h4>
+        <h4>Menu groups</h4>
 
         <p>
-          You can also group menu items by sections that can have their own alignment:
+          You can also group menu items by sections that can have their own
+          alignment:
         </p>
 
         {getGroupedMenu()}
@@ -333,20 +303,26 @@ class Menus extends Component {
 </ul>
 `}</CodeBlock>
 
-        <h4>
-          Menu with submenu in items
-        </h4>
+        <h4>Menu with submenu in items</h4>
 
         <p>
-          Submenus are supported, and it is as simple as adding another menu group of elements inside the menu-item:
+          Submenus are supported, and it is as simple as adding another menu
+          group of elements inside the menu-item:
         </p>
 
         <ul className="menu">
-          {getMenuItemsWithSubmenu(horizontal, this.onClickSubMenuOpen, 'horizontal')}
+          {getMenuItemsWithSubmenu(
+            horizontal,
+            this.onClickSubMenuOpen,
+            'horizontal'
+          )}
         </ul>
 
         <p>
-          Submenus are hidden by default, and visible when the "active" class is added to the nested "menu" element. Please note that the handling of the opening / closing is handled by JS and therefore outside the scope of bolster.
+          Submenus are hidden by default, and visible when the "active" class is
+          added to the nested "menu" element. Please note that the handling of
+          the opening / closing is handled by JS and therefore outside the scope
+          of bolster.
         </p>
 
         <CodeBlock style={STYLES.codeBlock}>{`
@@ -378,17 +354,14 @@ class Menus extends Component {
 </ul>
 `}</CodeBlock>
 
-        <h4>
-          Vertical
-        </h4>
+        <h4>Vertical</h4>
 
         <p>
-          Vertical menus are also supported, however they do not inherit the full width of the container as the horizontal menus do:
+          Vertical menus are also supported, however they do not inherit the
+          full width of the container as the horizontal menus do:
         </p>
 
-        <ul className="menu vertical">
-          {getMenuItems()}
-        </ul>
+        <ul className="menu vertical">{getMenuItems()}</ul>
 
         <CodeBlock style={STYLES.codeBlock}>{`
 <ul class="menu vertical">
@@ -410,16 +383,19 @@ class Menus extends Component {
 </ul>
 `}</CodeBlock>
 
-        <h4>
-          Vertical menu with submenu in items
-        </h4>
+        <h4>Vertical menu with submenu in items</h4>
 
         <p>
-          Submenus are also supported in vertical menus, however they will appear to the right of the item rather than below it.
+          Submenus are also supported in vertical menus, however they will
+          appear to the right of the item rather than below it.
         </p>
 
         <ul className="menu vertical">
-          {getMenuItemsWithSubmenu(vertical, this.onClickSubMenuOpen, 'vertical')}
+          {getMenuItemsWithSubmenu(
+            vertical,
+            this.onClickSubMenuOpen,
+            'vertical'
+          )}
         </ul>
 
         <CodeBlock style={STYLES.codeBlock}>{`
