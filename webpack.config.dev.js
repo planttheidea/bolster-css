@@ -5,15 +5,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const defaultConfig = require('./webpack.config');
 const utils = require('./webpackConfigUtils');
 
-const ADDITIONAL_LOADERS = utils.getAdditionalLoaders(true);
+const ADDITIONAL_LOADERS = utils.getAdditionalRules(true);
 
 const PORT = 3000;
 
 module.exports = Object.assign({}, defaultConfig, {
-  cache: true,
-
-  debug: true,
-
   devServer: {
     contentBase: './dist',
     historyApiFallback: true,
@@ -29,17 +25,15 @@ module.exports = Object.assign({}, defaultConfig, {
     }
   },
 
-  devtool: 'eval-cheap-module-source-map',
+  devtool: '#source-map',
 
   module: Object.assign({}, defaultConfig.module, {
-    loaders: defaultConfig.module.loaders.concat(ADDITIONAL_LOADERS)
+    rules: defaultConfig.module.rules.concat(ADDITIONAL_LOADERS)
   }),
 
   output: Object.assign({}, defaultConfig.output, {
     publicPath: `http://localhost:${PORT}/`
   }),
 
-  plugins: defaultConfig.plugins.concat([
-    new HtmlWebpackPlugin()
-  ])
+  plugins: defaultConfig.plugins.concat([new HtmlWebpackPlugin()])
 });

@@ -1,4 +1,4 @@
-@import './variables';
+@import "./variables";
 
 .padded {
   padding: 0 $gutter-large;
@@ -65,7 +65,7 @@ $minSize: nth($sizes, 2);
 .clearfix {
   &:after,
   &:before {
-    content: ' ';
+    content: " ";
     display: table;
   }
 
@@ -101,23 +101,23 @@ $sizeNamesLength: length($sizeNames);
     $sizeName: nth($sizeNames, $index);
     $size: nth($sizes, $index);
 
-    $mediaQuery: '';
+    $mediaQuery: "";
 
     @if ($index == 1) {
       $nextSize: nth($sizes, $index + 1);
 
-      $mediaQuery: (max-width: #{$nextSize - 1}px);
+      $mediaQuery: "(max-width: #{$nextSize - 1}px)";
     } @else {
-      $mediaQuery: (min-width: #{$size}px);
+      $mediaQuery: "(min-width: #{$size}px)";
 
       @if ($index < $sizeNamesLength) {
         $nextSize: nth($sizes, $index + 1);
 
-        @if ($mediaQuery != '') {
-          $mediaQuery: $mediaQuery + and;
+        @if ($mediaQuery != "") {
+          $mediaQuery: "#{$mediaQuery} and ";
         }
 
-        $mediaQuery: $mediaQuery + (max-width: #{$nextSize - 1}px);
+        $mediaQuery: "#{$mediaQuery} (max-width: #{$nextSize - 1}px)";
       }
     }
 
@@ -133,21 +133,23 @@ $sizeNamesLength: length($sizeNames);
   $sizeName: nth($sizeNames, $index);
   $size: nth($sizes, $index);
 
-  $mediaQuery: '';
+  $mediaQuery: "";
 
   @if ($index < $sizeNamesLength) {
     $nextSize: nth($sizes, $index + 1);
 
-    $mediaQuery: (min-width: #{$nextSize}px);
+    $mediaQuery: (
+      min-width: #{$nextSize}px
+    );
   }
 
   @if ($index != 1) {
-    $mediaQueryAddon: screen and (max-width: #{$size - 1}px);
+    $mediaQueryAddon: "screen and (max-width: #{$size - 1}px)";
 
-    @if ($mediaQuery != '') {
-      $mediaQuery: #{$mediaQuery}, #{$mediaQueryAddon};
+    @if ($mediaQuery != "") {
+      $mediaQuery: "#{$mediaQuery}, #{$mediaQueryAddon}";
     } @else {
-      $mediaQuery: $mediaQuery + $mediaQueryAddon;
+      $mediaQuery: "#{$mediaQuery} #{$mediaQueryAddon}";
     }
   }
 

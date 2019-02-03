@@ -11,32 +11,15 @@ const STYLES = {
   }
 };
 
-const TAG_TYPES = [
-  '',
-  'primary',
-  'info',
-  'danger',
-  'success',
-  'warning'
-];
-const TAG_SIZES = [
-  'extra-small',
-  'small',
-  '',
-  'large',
-  'extra-large'
-];
+const TAG_TYPES = ['', 'primary', 'info', 'danger', 'success', 'warning'];
+const TAG_SIZES = ['extra-small', 'small', '', 'large', 'extra-large'];
 
 const Labels = () => {
   return (
     <section>
-      <h4>
-        Tags
-      </h4>
+      <h4>Tags</h4>
 
-      <p>
-        Tags allow for context-based styling of text to identify it:
-      </p>
+      <p>Tags allow for context-based styling of text to identify it:</p>
 
       <div style={STYLES.group}>
         {TAG_TYPES.map((tagType, tagTypeIndex) => {
@@ -51,7 +34,7 @@ const Labels = () => {
           );
         })}
       </div>
-      
+
       <CodeBlock>{`
 <span class="tag">
     Standard tag
@@ -78,13 +61,9 @@ const Labels = () => {
 </span>
 `}</CodeBlock>
 
-      <h4>
-        Sizes
-      </h4>
+      <h4>Sizes</h4>
 
-      <p>
-        Tags also can be one of five sizes:
-      </p>
+      <p>Tags also can be one of five sizes:</p>
 
       <div style={STYLES.group}>
         {TAG_SIZES.map((tagSize, tagSizeIndex) => {
@@ -112,29 +91,19 @@ const Labels = () => {
 </div>
 `}</CodeBlock>
 
-      <h4>
-        Groups
-      </h4>
+      <h4>Groups</h4>
 
       <p>
-        Tags can also be grouped together when wrapped in a container with the "tag-group" class:
+        Tags can also be grouped together when wrapped in a container with the
+        "tag-group" class:
       </p>
 
-      <div
-        className="tag-group"
-        style={STYLES.group}
-      >
-        <span className="tag primary">
-          tag primary
-        </span>
+      <div className="tag-group" style={STYLES.group}>
+        <span className="tag primary">tag primary</span>
 
-        <span className="tag warning">
-          tag warning
-        </span>
+        <span className="tag warning">tag warning</span>
 
-        <span className="tag info">
-          tag info
-        </span>
+        <span className="tag info">tag info</span>
       </div>
 
       <CodeBlock>{`

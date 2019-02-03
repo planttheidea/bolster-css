@@ -11,3 +11,5 @@ webpack.config.build-docs.js
 webpack.config.dev.js
 webpack.config.js
 webpackConfigUtils.js
+yarn.lock
+*.log

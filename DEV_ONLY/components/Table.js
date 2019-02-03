@@ -1,6 +1,5 @@
-import React, {
-  PropTypes
-} from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 let headers = [],
   rows = [],
@@ -16,17 +15,13 @@ for (let i = 3; i--;) {
   rows.unshift(exampleRow);
 }
 
-const Table = ({rowClass = '', tableClass = ''}) => {
+const Table = ({ rowClass = '', tableClass = '' }) => {
   return (
     <table className={tableClass}>
       <thead>
         <tr>
           {headers.map((header, headerIndex) => {
-            return (
-              <th key={`th-${headerIndex}`}>
-                {header}
-              </th>
-            );
+            return <th key={`th-${headerIndex}`}>{header}</th>;
           })}
         </tr>
       </thead>
@@ -36,16 +31,9 @@ const Table = ({rowClass = '', tableClass = ''}) => {
           const className = rowIndex === 2 ? rowClass : '';
 
           return (
-            <tr
-              className={className}
-              key={`tr-${rowIndex}`}
-            >
+            <tr className={className} key={`tr-${rowIndex}`}>
               {Object.keys(row).map((key, tdIndex) => {
-                return (
-                  <td key={`td-${tdIndex}`}>
-                    {row[key]}
-                  </td>
-                );
+                return <td key={`td-${tdIndex}`}>{row[key]}</td>;
               })}
             </tr>
           );

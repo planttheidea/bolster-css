@@ -14,54 +14,32 @@ const STYLES = {
 const Labels = () => {
   return (
     <section>
-      <h4>
-        Form and fieldset
-      </h4>
+      <h4>Form and fieldset</h4>
 
-      <p>
-        All form fields have normalized styling:
-      </p>
+      <p>All form fields have normalized styling:</p>
 
       <form>
         <fieldset>
-          <legend>
-            I am legend!!
-          </legend>
+          <legend>I am legend!!</legend>
 
           <div className="control-group">
-            <label>
-              Name
-            </label>
+            <label>Name</label>
 
-            <input
-              placeholder="Timmy Test"
-              type="text"
-            />
+            <input placeholder="Timmy Test" type="text" />
           </div>
 
           <div className="control-group">
-            <label>
-              Email
-            </label>
+            <label>Email</label>
 
-            <input
-              placeholder="foo@bar.com"
-              type="email"
-            />
+            <input placeholder="foo@bar.com" type="email" />
           </div>
 
           <div className="control-group text-right">
-            <button
-              className="link"
-              type="button"
-            >
+            <button className="link" type="button">
               Cancel
             </button>
 
-            <button
-              className="primary"
-              type="button"
-            >
+            <button className="primary" type="button">
               Submit
             </button>
           </div>
@@ -69,7 +47,9 @@ const Labels = () => {
       </form>
 
       <p>
-        While not necessary, the helper class "control-group" can be provided to container elements around each input / label combination for a natural spacing.
+        While not necessary, the helper class "control-group" can be provided to
+        container elements around each input / label combination for a natural
+        spacing.
       </p>
 
       <CodeBlock>{`
@@ -90,84 +70,53 @@ const Labels = () => {
 </form>
 `}</CodeBlock>
 
-      <h4>
-        Inputs
-      </h4>
+      <h4>Inputs</h4>
 
       <p>
-        All input types have normalized styles that will provide context-based highlights when appropriate:
+        All input types have normalized styles that will provide context-based
+        highlights when appropriate:
       </p>
 
       <div className="control-group">
-        <label>
-          Input
-        </label>
+        <label>Input</label>
 
-        <input
-          placeholder="Standard input"
-          type="text"
-        />
+        <input placeholder="Standard input" type="text" />
 
-        <input
-          disabled
-          placeholder="Disabled input"
-          type="text"
-        />
+        <input disabled placeholder="Disabled input" type="text" />
 
-        <input
-          placeholder="Readonly input"
-          readOnly
-          type="text"
-        />
+        <input placeholder="Readonly input" readOnly type="text" />
 
-        <input
-          defaultValue="Invalid input"
-          type="email"
-        />
+        <input defaultValue="Invalid input" type="email" />
       </div>
 
       <div className="control-group">
-        <label>
-          Textarea
-        </label>
+        <label>Textarea</label>
 
-        <textarea placeholder="Standard textarea"/>
+        <textarea placeholder="Standard textarea" />
       </div>
 
       <div className="control-group">
-        <label>
-          Select
-        </label>
+        <label>Select</label>
 
         <select>
-          <option>
-            Selected
-          </option>
+          <option>Selected</option>
 
-          <option>
-            Option
-          </option>
+          <option>Option</option>
 
-          <option>
-            Option
-          </option>
+          <option>Option</option>
         </select>
       </div>
 
       <div className="control-group">
-        <label>
-          Checkbox
-        </label>
+        <label>Checkbox</label>
 
-        <input type="checkbox"/>
+        <input type="checkbox" />
       </div>
 
       <div className="control-group">
-        <label>
-          Radio button
-        </label>
+        <label>Radio button</label>
 
-        <input type="radio"/>
+        <input type="radio" />
       </div>
 
       <CodeBlock>{`
@@ -182,47 +131,31 @@ const Labels = () => {
 <textarea></textarea>
 `}</CodeBlock>
 
-      <h4>
-        Input groups
-      </h4>
+      <h4>Input groups</h4>
 
       <p>
-        You can group input types by wrapping them in a container with the "input-group" class:
+        You can group input types by wrapping them in a container with the
+        "input-group" class:
       </p>
 
       <div className="control-group input-group">
-        <input
-          placeholder="foo@bar.com"
-          type="email"
-        />
+        <input placeholder="foo@bar.com" type="email" />
 
-        <button
-          className="primary"
-          type="button"
-        >
+        <button className="primary" type="button">
           Submit
         </button>
       </div>
 
       <div className="control-group input-group">
         <select>
-          <option>
-            Mr.
-          </option>
+          <option>Mr.</option>
 
-          <option>
-            Ms.
-          </option>
+          <option>Ms.</option>
 
-          <option>
-            Mrs.
-          </option>
+          <option>Mrs.</option>
         </select>
 
-        <input
-          placeholder="Timmy Test"
-          type="text"
-        />
+        <input placeholder="Timmy Test" type="text" />
       </div>
 
       <CodeBlock>{`
@@ -235,26 +168,19 @@ const Labels = () => {
 </div>
 `}</CodeBlock>
 
-      <h4>
-        Stacked input groups
-      </h4>
+      <h4>Stacked input groups</h4>
 
       <p>
-        If you add the "stacked" class to the "input-group" class, you will get a vertical grouping rather than horizontal:
+        If you add the "stacked" class to the "input-group" class, you will get
+        a vertical grouping rather than horizontal:
       </p>
 
       <div className="control-group input-group stacked">
-        <input
-          placeholder="Timmy Test"
-          type="text"
-        />
+        <input placeholder="Timmy Test" type="text" />
 
-        <input
-          placeholder="foo@bar.com"
-          type="email"
-        />
+        <input placeholder="foo@bar.com" type="email" />
 
-        <textarea placeholder="More info"/>
+        <textarea placeholder="More info" />
       </div>
 
       <CodeBlock>{`
@@ -265,24 +191,20 @@ const Labels = () => {
 </div>
 `}</CodeBlock>
 
-      <h4>
-        Custom toggles
-      </h4>
+      <h4>Custom toggles</h4>
 
       <p>
-        You can also create a custom toggle by wrapping both the input and the label in a container with the "toggle" class, which has the interactions of a checkbox or radio button but has the appearance of a standard button:
+        You can also create a custom toggle by wrapping both the input and the
+        label in a container with the "toggle" class, which has the interactions
+        of a checkbox or radio button but has the appearance of a standard
+        button:
       </p>
 
-      <div
-        className="control-group"
-        style={STYLES.inlineGroup}
-      >
+      <div className="control-group" style={STYLES.inlineGroup}>
         <div className="toggle">
-          <input type="checkbox"/>
+          <input type="checkbox" />
 
-          <label>
-            Checkbox
-          </label>
+          <label>Checkbox</label>
         </div>
       </div>
 
@@ -297,73 +219,47 @@ const Labels = () => {
 `}</CodeBlock>
 
       <p>
-        You can also wrap these "toggle" class containers in a container with the "input-group" class to form grouped custom toggles:
+        You can also wrap these "toggle" class containers in a container with
+        the "input-group" class to form grouped custom toggles:
       </p>
 
-      <div
-        className="control-group input-group"
-        style={STYLES.inlineGroup}
-      >
+      <div className="control-group input-group" style={STYLES.inlineGroup}>
         <div className="toggle">
-          <input type="checkbox"/>
+          <input type="checkbox" />
 
-          <label>
-            Checkbox
-          </label>
+          <label>Checkbox</label>
         </div>
 
         <div className="toggle">
-          <input type="checkbox"/>
+          <input type="checkbox" />
 
-          <label>
-            Checkbox
-          </label>
+          <label>Checkbox</label>
         </div>
 
         <div className="toggle">
-          <input type="checkbox"/>
+          <input type="checkbox" />
 
-          <label>
-            Checkbox
-          </label>
+          <label>Checkbox</label>
         </div>
       </div>
 
-      <div
-        className="control-group input-group"
-        style={STYLES.inlineGroup}
-      >
+      <div className="control-group input-group" style={STYLES.inlineGroup}>
         <div className="toggle">
-          <input
-            name="toggle-test"
-            type="radio"
-          />
+          <input name="toggle-test" type="radio" />
 
-          <label>
-            Radio Button
-          </label>
+          <label>Radio Button</label>
         </div>
 
         <div className="toggle">
-          <input
-            name="toggle-test"
-            type="radio"
-          />
+          <input name="toggle-test" type="radio" />
 
-          <label>
-            Radio Button
-          </label>
+          <label>Radio Button</label>
         </div>
 
         <div className="toggle">
-          <input
-            name="toggle-test"
-            type="radio"
-          />
+          <input name="toggle-test" type="radio" />
 
-          <label>
-            Radio Button
-          </label>
+          <label>Radio Button</label>
         </div>
       </div>
 
@@ -405,12 +301,11 @@ const Labels = () => {
 </div>
 `}</CodeBlock>
 
-      <h4>
-        Inline forms using grid
-      </h4>
+      <h4>Inline forms using grid</h4>
 
       <p>
-        When you combine form inputs with bolster's grid setup, you can easily create inline form setups:
+        When you combine form inputs with bolster's grid setup, you can easily
+        create inline form setups:
       </p>
 
       <form>
@@ -421,10 +316,7 @@ const Labels = () => {
             </label>
 
             <div className="column column-10">
-              <input
-                placeholder="Timmy Test"
-                type="text"
-              />
+              <input placeholder="Timmy Test" type="text" />
             </div>
           </div>
 
@@ -434,26 +326,17 @@ const Labels = () => {
             </label>
 
             <div className="column column-10">
-              <input
-                placeholder="foo@bar.com"
-                type="email"
-              />
+              <input placeholder="foo@bar.com" type="email" />
             </div>
           </div>
 
           <div className="row control-group">
             <div className="column column-10 offset-2">
-              <button
-                className="primary"
-                type="button"
-              >
+              <button className="primary" type="button">
                 Submit
               </button>
 
-              <button
-                className="link"
-                type="button"
-              >
+              <button className="link" type="button">
                 Cancel
               </button>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Style from 'react-style-tag';
+import { Style } from 'react-style-tag';
 
 import CodeBlock from '../components/CodeBlock';
 
@@ -14,31 +14,24 @@ const STYLES = {
 const Grids = () => {
   return (
     <section>
-      <h4>
-        Default setup
-      </h4>
+      <h4>Default setup</h4>
 
       <p>
-        The default grid system will automatically expand columns to fill the space, both horizontally and vertically.
+        The default grid system will automatically expand columns to fill the
+        space, both horizontally and vertically.
       </p>
 
       <div className="grid">
         <div className="column">
-          <div className="focused-column">
-            column
-          </div>
+          <div className="focused-column">column</div>
         </div>
 
         <div className="column remaining-column-container">
-          <div className="remaining-column">
-            column
-          </div>
+          <div className="remaining-column">column</div>
         </div>
 
         <div className="column remaining-column-container">
-          <div className="remaining-column">
-            column
-          </div>
+          <div className="remaining-column">column</div>
         </div>
       </div>
 
@@ -58,29 +51,30 @@ const Grids = () => {
 </div>
 `}</CodeBlock>
 
-      <h4>
-        Default setup with additional column classes
-      </h4>
+      <h4>Default setup with additional column classes</h4>
 
-      <p>
-        Columns can also have classes added for alignment or sizing:
-      </p>
+      <p>Columns can also have classes added for alignment or sizing:</p>
 
       <ul>
         <li>
-          align-center = centers column vertically with other columns rather than stretch to fit the space
+          align-center = centers column vertically with other columns rather
+          than stretch to fit the space
         </li>
 
         <li>
-          align-start = aligns column to the top of the row rather than stretch to fit the space
+          align-start = aligns column to the top of the row rather than stretch
+          to fit the space
         </li>
 
         <li>
-          align-end = aligns column to the bottom of the row rather than stretch to fit the space
+          align-end = aligns column to the bottom of the row rather than stretch
+          to fit the space
         </li>
 
         <li>
-          fit-content = prevents column from growing to fit naturally with other columns, instead making its width as small as possible for its content.
+          fit-content = prevents column from growing to fit naturally with other
+          columns, instead making its width as small as possible for its
+          content.
         </li>
       </ul>
 
@@ -91,21 +85,15 @@ const Grids = () => {
         }}
       >
         <div className="column align-center">
-          <div className="focused-column">
-            column align-center
-          </div>
+          <div className="focused-column">column align-center</div>
         </div>
 
         <div className="column fit-content align-start remaining-column-container">
-          <div className="remaining-column">
-            column fit-content align-start
-          </div>
+          <div className="remaining-column">column fit-content align-start</div>
         </div>
 
         <div className="column align-end remaining-column-container">
-          <div className="remaining-column">
-            column align-end
-          </div>
+          <div className="remaining-column">column align-end</div>
         </div>
       </div>
 
@@ -125,12 +113,13 @@ const Grids = () => {
 </div>
 `}</CodeBlock>
 
-      <h4>
-        Fixed-width columns
-      </h4>
+      <h4>Fixed-width columns</h4>
 
       <p>
-        If you would rather go with a fixed-width column setup, there are classes for a standard 12-column grid based on the convention "column-[size]", where size is the number out of twelve. For example, "column-6" would equate to 6 / 12, or 50% width.
+        If you would rather go with a fixed-width column setup, there are
+        classes for a standard 12-column grid based on the convention
+        "column-[size]", where size is the number out of twelve. For example,
+        "column-6" would equate to 6 / 12, or 50% width.
       </p>
 
       <div className="grid">
@@ -144,14 +133,9 @@ const Grids = () => {
           }
 
           return (
-            <div
-              className="row"
-              key={`row-${sizeIndex}`}
-            >
+            <div className="row" key={`row-${sizeIndex}`}>
               <div className={`column column-${size}`}>
-                <div className="focused-column">
-                  column-{size}
-                </div>
+                <div className="focused-column">column-{size}</div>
               </div>
 
               {remainingColumns.map((column, columnIndex) => {
@@ -160,9 +144,7 @@ const Grids = () => {
                     className="column column-1 remaining-column-container"
                     key={`remaining-column-${columnIndex}`}
                   >
-                    <div className="remaining-column">
-                      1
-                    </div>
+                    <div className="remaining-column">1</div>
                   </div>
                 );
               })}
@@ -184,7 +166,10 @@ const Grids = () => {
 `}</CodeBlock>
 
       <p>
-        These fixed-width sizes are also available with breakpoint-based class names "column-[breakpoint]-[size]". For example, "column-md-6" will apply a 50% width for the column when the screen is larger than the size of the md breakpoint.
+        These fixed-width sizes are also available with breakpoint-based class
+        names "column-[breakpoint]-[size]". For example, "column-md-6" will
+        apply a 50% width for the column when the screen is larger than the size
+        of the md breakpoint.
       </p>
 
       <CodeBlock style={STYLES.codeBlock}>{`
@@ -199,36 +184,29 @@ const Grids = () => {
 </div>
 `}</CodeBlock>
 
-      <h4>
-        Fixed-width columns with offsets
-      </h4>
+      <h4>Fixed-width columns with offsets</h4>
 
       <p>
-        You can also apply the same widths as offsets to any column following the convention "offset-[size]":
+        You can also apply the same widths as offsets to any column following
+        the convention "offset-[size]":
       </p>
 
       <div className="grid">
         <div className="row">
           <div className={`column column-4 offset-3`}>
-            <div className="focused-column">
-              column-4 offset-3
-            </div>
+            <div className="focused-column">column-4 offset-3</div>
           </div>
         </div>
 
         <div className="row">
           <div className={`column column-7 offset-4`}>
-            <div className="focused-column">
-              column-7 offset-4
-            </div>
+            <div className="focused-column">column-7 offset-4</div>
           </div>
         </div>
 
         <div className="row">
           <div className={`column column-9 offset-1`}>
-            <div className="focused-column">
-              column-9 offset-1
-            </div>
+            <div className="focused-column">column-9 offset-1</div>
           </div>
         </div>
       </div>
@@ -245,7 +223,8 @@ const Grids = () => {
 `}</CodeBlock>
 
       <p>
-        Like columns, the fixed-width offsets can be applied on a breakpoint basis as well:
+        Like columns, the fixed-width offsets can be applied on a breakpoint
+        basis as well:
       </p>
 
       <CodeBlock>{`

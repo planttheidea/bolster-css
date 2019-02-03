@@ -1,7 +1,5 @@
-import React, {
-  Component,
-  PropTypes
-} from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 class CodeBlock extends Component {
   static propTypes = {
@@ -13,9 +11,7 @@ class CodeBlock extends Component {
   };
 
   onClickToggleDisplay = () => {
-    const {
-      isShown
-    } = this.state;
+    const { isShown } = this.state;
 
     this.setState({
       isShown: !isShown
@@ -23,28 +19,18 @@ class CodeBlock extends Component {
   };
 
   render() {
-    const {
-      children,
-      ...otherProps
-    } = this.props;
-    const {
-      isShown
-    } = this.state;
+    const { children, ...otherProps } = this.props;
+    const { isShown } = this.state;
 
     return (
       <div {...otherProps}>
-        <button
-          className="small"
-          onClick={this.onClickToggleDisplay}
-        >
+        <button className="small" onClick={this.onClickToggleDisplay}>
           {isShown ? 'Hide' : 'Show'} example
         </button>
 
         {isShown && (
           <pre>
-            <code>
-              {children.trim()}
-            </code>
+            <code>{children.trim()}</code>
           </pre>
         )}
       </div>
