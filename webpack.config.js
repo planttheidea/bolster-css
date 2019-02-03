@@ -4,41 +4,29 @@ const path = require('path');
 const webpack = require('webpack');
 const eslintFriendlyFormatter = require('eslint-friendly-formatter');
 
-const autoprefixer = require('autoprefixer');
-
 module.exports = {
-  entry: [
-    path.resolve(__dirname, 'DEV_ONLY', 'index.js')
-  ],
+  entry: [path.resolve(__dirname, 'DEV_ONLY', 'index.js')],
 
-  eslint: {
-    configFile: '.eslintrc',
-    emitError: true,
-    failOnError: true,
-    failOnWarning: false,
-    formatter: eslintFriendlyFormatter
-  },
+  mode: 'development',
 
   module: {
-    preLoaders: [
+    rules: [
       {
-        include: [
-          path.resolve(__dirname, 'DEV_ONLY')
-        ],
+        enforce: 'pre',
+        include: [path.resolve(__dirname, 'DEV_ONLY')],
         loader: 'eslint-loader',
+        options: {
+          configFile: '.eslintrc',
+          emitError: true,
+          failOnError: true,
+          failOnWarning: false,
+          formatter: eslintFriendlyFormatter
+        },
         test: /\.js$/
-      }
-    ],
-
-    loaders: [
+      },
       {
-        loader: 'json',
-        test: /\.json$/
-      }, {
-        include: [
-          path.resolve(__dirname, 'DEV_ONLY')
-        ],
-        loader: 'babel',
+        include: [path.resolve(__dirname, 'DEV_ONLY')],
+        loader: 'babel-loader',
         test: /\.js$/
       }
     ]
@@ -54,31 +42,5 @@ module.exports = {
     path: path.resolve(__dirname, 'docs')
   },
 
-  plugins: [
-    new webpack.EnvironmentPlugin([
-      'NODE_ENV'
-    ])
-  ],
-
-  postcss() {
-    return [
-      autoprefixer
-    ]
-  },
-
-  resolve: {
-    extensions: [
-      '',
-      '.js'
-    ],
-
-    root: __dirname
-  },
-
-  sassLoader: {
-    includePaths: [
-      path.resolve(__dirname, 'node_modules')
-    ],
-    sourceMap: true
-  }
+  plugins: [new webpack.EnvironmentPlugin(['NODE_ENV'])]
 };

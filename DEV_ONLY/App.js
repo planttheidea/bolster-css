@@ -1,16 +1,8 @@
 import 'babel-polyfill';
 
-import React, {
-  Component,
-  PropTypes
-} from 'react';
-import {
-  Link,
-  locationShape
-} from 'react-router';
-import Style, {
-  hashKeys
-} from 'react-style-tag';
+import React, { Component, PropTypes } from 'react';
+import { Link, locationShape } from 'react-router';
+import Style, { hashKeys } from 'react-style-tag';
 
 import 'raleway-webfont/raleway.css';
 import 'font-awesome/css/font-awesome.css';
@@ -40,43 +32,53 @@ const ROUTES = [
     component: Home,
     text: 'Home',
     to: '/'
-  }, {
+  },
+  {
     component: Base,
     text: 'Base',
     to: '/base'
-  }, {
+  },
+  {
     component: Text,
     text: 'Text',
     to: '/text'
-  }, {
+  },
+  {
     component: Grids,
     text: 'Grids',
     to: '/grids'
-  }, {
+  },
+  {
     component: Buttons,
     text: 'Buttons',
     to: '/buttons'
-  }, {
+  },
+  {
     component: Menus,
     text: 'Menus',
     to: '/menus'
-  }, {
+  },
+  {
     component: Forms,
     text: 'Forms',
     to: '/forms'
-  }, {
+  },
+  {
     component: Tables,
     text: 'Tables',
     to: '/tables'
-  }, {
+  },
+  {
     component: Tags,
     text: 'Tags',
     to: '/tags'
-  }, {
+  },
+  {
     component: Notifications,
     text: 'Notifications',
     to: '/notifications'
-  }, {
+  },
+  {
     component: Images,
     text: 'Images',
     to: '/images'
@@ -94,8 +96,18 @@ const {
   hamburger,
   nav,
   navShown
-} = hashKeys(['brand', 'brandLink', 'container', 'content', 'externals',
-  'hamburger', 'externalsIcon', 'externalsLink', 'nav', 'navShown']);
+} = hashKeys([
+  'brand',
+  'brandLink',
+  'container',
+  'content',
+  'externals',
+  'hamburger',
+  'externalsIcon',
+  'externalsLink',
+  'nav',
+  'navShown'
+]);
 
 class App extends Component {
   static propTypes = {
@@ -107,10 +119,8 @@ class App extends Component {
     menuOpen: false
   };
 
-  componentDidUpdate({location: previousLocation}) {
-    const {
-      location
-    } = this.props;
+  componentDidUpdate({ location: previousLocation }) {
+    const { location } = this.props;
 
     if (location.pathname !== previousLocation.pathname) {
       this.refs.content.scrollTop = 0;
@@ -118,43 +128,28 @@ class App extends Component {
   }
 
   onClickToggleMenu = () => {
-    const {
-      menuOpen
-    } = this.state;
-
-    this.setState({
+    this.setState(({ menuOpen }) => ({
       menuOpen: !menuOpen
-    });
+    }));
   };
 
   render() {
-    const {
-      children,
-      location
-    } = this.props;
-    const {
-      menuOpen
-    } = this.state;
-
-    let navClassName = `${nav}`;
-
-    if (menuOpen) {
-      navClassName += ` ${navShown}`;
-    }
+    const { children, location } = this.props;
+    const { menuOpen } = this.state;
 
     return (
       <div className={container}>
-        <nav className={navClassName}>
+        <nav className={menuOpen ? `${nav} ${navShown}` : `${nav}`}>
           <div
             className={`xs-only ${hamburger}`}
             onClick={this.onClickToggleMenu}
             role="button"
           >
-            <i className="fa fa-bars"/>
+            <i className="fa fa-bars" />
           </div>
 
           <ul className="menu vertical full-width">
-            {ROUTES.map(({text, to}, linkIndex) => {
+            {ROUTES.map(({ text, to }, linkIndex) => {
               const isActive = location.pathname === to;
 
               return (
@@ -162,10 +157,7 @@ class App extends Component {
                   className={`menu-item${isActive ? ' active' : ''}`}
                   key={linkIndex}
                 >
-                  <Link
-                    className="menu-item-link"
-                    to={to}
-                  >
+                  <Link className="menu-item-link" to={to}>
                     {text}
                   </Link>
                 </li>
@@ -179,27 +171,20 @@ class App extends Component {
                 rel="nofollow"
                 target="_blank"
               >
-                <i className={`fa fa-github ${externalsIcon}`}/>
-
+                <i className={`fa fa-github ${externalsIcon}`} />
                 github
               </a>
             </li>
 
             <li className={`menu-brand ${brand}`}>
-              <Link
-                className={`menu-item-link ${brandLink}`}
-                to="/"
-              >
+              <Link className={`menu-item-link ${brandLink}`} to="/">
                 bolster
               </Link>
             </li>
           </ul>
         </nav>
 
-        <div
-          className={`${content} clearfix`}
-          ref="content"
-        >
+        <div className={`${content} clearfix`} ref="content">
           {children}
         </div>
 
@@ -324,6 +309,6 @@ class App extends Component {
   }
 }
 
-export {ROUTES};
+export { ROUTES };
 
 export default App;
